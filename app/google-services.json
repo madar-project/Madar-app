@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "281852191390",
+    "project_id": "deentracker-4b9df",
+    "storage_bucket": "deentracker-4b9df.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:281852191390:android:68211a5450c5f01265118f",
+        "android_client_info": {
+          "package_name": "com.taqat.madar"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsT7wIaCV5m6MJJJb0HFHMJwP5sClMQ8M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

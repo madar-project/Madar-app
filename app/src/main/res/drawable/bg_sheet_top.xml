@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  سقف النافذة اللي تطلع من تحت: بياض بحواف عليا مستديرة بس، لأن الأسفل بيلتصق
+  بحافة الشاشة فما له معنى يستدير.
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/white" />
+    <corners
+        android:topLeftRadius="24dp"
+        android:topRightRadius="24dp" />
+</shape>

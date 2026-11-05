@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  لوحة اختيار التصنيف، تنزل من خانة «اختار تصنيفاً». عنوانها فوق الأسطر عشان التاجر
+  ما يضغط على قائمة ما يعرف شو فيها، وScrollView مش LinearLayout: لو زحمت
+  التصنيفات الشاشة، الأسطر بتتمرر وما بيتقصّ سطر منها.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_picker_panel"
+    android:layoutDirection="rtl"
+    android:orientation="vertical"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/almarai_regular"
+        android:paddingStart="18dp"
+        android:paddingEnd="18dp"
+        android:paddingBottom="6dp"
+        android:text="@string/offer_category_hint"
+        android:textColor="@color/text_secondary"
+        android:textSize="12sp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:id="@+id/llOptions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:ignore="UselessParent" />
+    </ScrollView>
+</LinearLayout>

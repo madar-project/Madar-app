@@ -1,0 +1,18 @@
+<!--
+    تسجيل الخروج: قوس مفتوح وسهم يخرج منه. السهم يشير لليمين لأن الزر في شاشة
+    عربية، فالخروج عندنا يمشي في الاتجاه المعاكس لاتجاه القراءة.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M5,3h8v2H5v14h8v2H5a2,2 0 0 1 -2,-2V5a2,2 0 0 1 2,-2z" />
+
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M21,12l-4,-4v3H9v2h8v3z" />
+</vector>

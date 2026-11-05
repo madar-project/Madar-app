@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  لون نص سطر التصنيف: برتقالي للمُفعّل زي لون شريحته، وداكن لغيره، فالسطر
+  المُفعّل بيتقرّر بلونين معاً لا بخلفية وحدها.
+-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:color="@color/primary_orange"
+        android:state_selected="true" />
+    <item android:color="@color/text_dark" />
+</selector>

@@ -2,4 +2,32 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="primary_orange">#FD5A0D</color>  <!-- البرتقالي الأساسي -->
+    <color name="secondary_navy">#1B336F</color>  <!-- الأزرق الكحلي -->
+    <color name="text_dark">#151C27</color>       <!-- الداكن للنصوص -->
+    <color name="text_secondary">#505F76</color>       <!-- الداكن للنصوص -->
+    <color name="dot_inactive">#D8DADC</color>         <!-- نقاط مؤشر المقدمة غير النشطة -->
+     <color name="section_light">#EEF1F8</color>       <!-- خلفية البطاقات الفاتحة -->
+     <color name="field_stroke">#E2E8F0</color>        <!-- حد الخانات الفارغة -->
+    <color name="ic_launcher_background">#FFFFFF</color> <!-- خلفية أيقونة التطبيق التكيفية -->
+    <!-- احمر قرار الرفض: وحده يميّز شاشة «لم يُقبل الطلب» عن شاشة الانتظار -->
+    <color name="danger_red">#C4342B</color>
+    <!-- حالة «متوفر» على بطاقة المنتج: أخضر هادئ على خلفية فاتحة، مقروء مع بقية الألوان -->
+    <color name="success_green">#188A4F</color>
+    <color name="badge_success_light">#E3F6EA</color>
+    <color name="badge_danger_light">#FBE9E7</color>
+    <!-- دائرة أيقونة صورة المنتج: أفتح من لون البطاقة حتى تظهر فوقها -->
+    <color name="photo_circle">#F5F7FD</color>
+    <!-- نص باهت فوق اللون البرتقالي المختار، كلمة «دقيقة» مثلاً -->
+    <color name="white_translucent">#CCFFFFFF</color>
+    <!-- شريحة المنتج المختارة في شاشة العروض: خوخى فاتح، يفرق عن اللافندر غير المختارة -->
+    <color name="offer_chip_peach">#FBE3D6</color>
+    <!-- شريط التنبيه داخل نافذة الرفض: أغمق من لون البطاقة بشوية عشان يبان فوقها -->
+    <color name="banner_lavender">#E1E7F4</color>
+    <!-- بطاقة الإشعار غير المقروء: خوخى فاتح يفرق عن البيضاء المقروءة -->
+    <color name="notif_unread_bg">#FCEDE3</color>
+    <!-- دائرة أيقونة الإشعار غير المقروء: أخف من البطاقة نفسها حتى تبان الأيقونة -->
+    <color name="notif_icon_peach">#F8DCC8</color>
+    <!-- شارة التقييم فوق صورة المتجر: داكنة حتى يبان البرتقالي والأبيض عليها -->
+    <color name="pill_dark">#2C2F33</color>
 </resources>

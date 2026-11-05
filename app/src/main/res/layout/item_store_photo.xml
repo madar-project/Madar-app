@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    بلاطة صورة في معرض المتجر. العرض صفر مع عمود بوزن واحد، فتتوزع البلاطات الثلاث
+    على عرض الشاشة نفسها مهما اختلف مقاس الجهاز.
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="0dp"
+    android:layout_height="104dp"
+    android:layout_columnWeight="1"
+    android:layout_margin="4dp">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardBackgroundColor="@color/section_light"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="0dp"
+        app:strokeColor="@color/field_stroke"
+        app:strokeWidth="1dp">
+
+        <ImageView
+            android:id="@+id/iv_photo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/store_photo_description"
+            android:scaleType="centerCrop"
+            tools:src="@drawable/ic_store" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <ImageView
+        android:id="@+id/btn_remove_photo"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:layout_gravity="top|end"
+        android:layout_margin="6dp"
+        android:background="@drawable/bg_delete_badge"
+        android:contentDescription="@string/btn_remove_photo"
+        android:padding="5dp"
+        android:src="@drawable/ic_close"
+        app:tint="@color/white" />
+</FrameLayout>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+    أيقونة احتياطية للأجهزة التي قبل Android 8 (لا تدعم adaptive-icon).
+    نفس اللوجو على خلفية بيضاء، بديلًا عن أيقونة أندرويد الافتراضية.
+-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@color/ic_launcher_background" />
+    <item android:drawable="@drawable/ic_launcher_foreground" />
+</layer-list>

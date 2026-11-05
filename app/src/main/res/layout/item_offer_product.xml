@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  شريحة منتج واحدة في «المنتجات المشمولة». ليست Chip بل وعاء بسيط، لأن الاختيار
+  يُتتبَّع في الكود بمجموعة معرّفات: شريحة Material كانت ستضيف حالة check خاصة بها
+  فوق حالتنا، فتتصادم الاثنتان عند «اختيار الكل».
+  الأيقونة في آخر السطر (يسار الشاشة العربية)، والاسم مع رمزه في أوله.
+  التباعد 20dp عمودياً بين كل سطرين، و16dp أفقياً بين الشرائح، وداخل الشريحة
+  نفسها 16dp من أولها: الأصناف أطباقٌ يقرأها التاجر واحداً واحداً، مش كلمات متلاصقة.
+  واتجاه النص rtl حتى يجي رمز الطبق في أول الاسم على اليمين، لا على يساره كما
+  يترتّب لو تُرك الاتجاه على مزاج النظام.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="40dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="15dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginBottom="15dp"
+    android:background="@drawable/bg_offer_product"
+    android:clickable="true"
+    android:focusable="true"
+    android:gravity="center_vertical"
+    android:paddingStart="16dp"
+    android:paddingEnd="14dp">
+
+    <TextView
+        android:id="@+id/tvLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/almarai_bold"
+        android:maxLines="1"
+        android:textColor="@color/text_dark"
+        android:textDirection="rtl"
+        android:textSize="14sp"
+        tools:text="🥤 عصير برتقال" />
+
+    <ImageView
+        android:id="@+id/ivState"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="10dp"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_add"
+        app:tint="@color/secondary_navy" />
+</LinearLayout>

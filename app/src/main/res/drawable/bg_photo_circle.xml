@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- خلفية دائرة أيقونة اختيار صورة المنتج، أفتح درجة من لون البطاقة نفسها -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <solid android:color="@color/photo_circle" />
+</shape>

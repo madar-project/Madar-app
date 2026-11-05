@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- أيقونة المعلومة: دائرة مرسومة بحد برتقالي وحرف i ممتلئ، للسطر اللي بيشرح الاسترجاع -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="@color/primary_orange"
+        android:strokeWidth="1.8"
+        android:pathData="M12,2 a10,10 0 1 0 0,20 a10,10 0 1 0 0,-20 z" />
+    <path
+        android:fillColor="@color/primary_orange"
+        android:pathData="M12,5.8 a1.2,1.2 0 1 0 0,2.4 a1.2,1.2 0 1 0 0,-2.4 z" />
+    <path
+        android:fillColor="@color/primary_orange"
+        android:pathData="M11,10 h2 v8 h-2 z" />
+</vector>

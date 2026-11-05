@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  نص قطعة المقسّم: برتقالي على البطاقة البيضاء المختارة، وباهت على الشفافة الباقية.
+  يتقدّم على لون النص الافتراضي لأن الخلفية وحدها لا تكفي لتقول «هذه المختارة».
+-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="@color/primary_orange" android:state_selected="true" />
+    <item android:color="@color/text_secondary" />
+</selector>

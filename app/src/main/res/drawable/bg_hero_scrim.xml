@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  تظليل أسفل صورة الغلاف: يبدأ شفافاً من الأعلى ويصير داكناً تحت، لأن اسم المتجر
+  مكتوب أبيض فوق الصورة نفسها، ومن غير هذا التظليل يقرأه النظام فوق صورة فاتحة فلا يُقرأ.
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <gradient
+        android:angle="270"
+        android:endColor="#CC12151A"
+        android:startColor="#0012151A"
+        android:type="linear" />
+</shape>

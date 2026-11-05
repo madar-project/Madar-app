@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- المقبض الصغير فوق النافذة: شريط رفيع مستدير الأطراف بيشير إن السحب ينزّلها -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/section_light" />
+    <corners android:radius="4dp" />
+</shape>

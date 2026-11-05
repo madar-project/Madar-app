@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  شارة «طلب جديد» برتقالي باهت، وهي حالة لا لون زينة: نفس خوخى الشريحة المختارة
+  في العروض، فكل ما هو «انتبه، عليه فعل» يلبس لون واحد في التطبيق كله.
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/offer_chip_peach" />
+    <corners android:radius="14dp" />
+</shape>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- حالة الاختيار: الخلفية برتقالية وزوايا 12dp -->
+    <item android:state_selected="true">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/primary_orange" />
+            <corners android:radius="12dp" />
+        </shape>
+    </item>
+
+    <!-- الحالة العادية: الخلفية فاتحة وزوايا 12dp -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#E7EEFE" />
+            <corners android:radius="12dp" />
+        </shape>
+    </item>
+</selector>

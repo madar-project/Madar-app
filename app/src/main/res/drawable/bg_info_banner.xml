@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- شريط معلومة الاسترجاع: لافندر أغمق شوية من وعاء الإدخال عشان ما تتخلطش بيه -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/banner_lavender" />
+    <corners android:radius="14dp" />
+</shape>

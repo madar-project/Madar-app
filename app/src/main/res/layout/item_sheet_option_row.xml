@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  صف خيار داخل مجموعة يقبل الجمع: مربّع اختيار ثم الاسم ثم السعر. وهو غير البلاطة
+  لأن الشكلين سؤالان مختلفان — دائرة واحدة تقول «واحداً لا غير»، ومربّع يقول «ما شئت».
+
+  المربّع ملفان لا selector: النافذة تعرف وحدها أيّ الصفوف مختارة في مجموعتها،
+  والصحّ الأبيض فوق البرتقالي هو ic_check نفسه المستخدم في بقية الشاشات.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_option_tile"
+    android:clickable="true"
+    android:focusable="true"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="12dp">
+
+    <FrameLayout
+        android:layout_width="22dp"
+        android:layout_height="22dp">
+
+        <View
+            android:id="@+id/view_checkbox"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_checkbox_off" />
+
+        <ImageView
+            android:id="@+id/iv_check"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@null"
+            android:padding="4dp"
+            android:src="@drawable/ic_check"
+            android:visibility="gone"
+            app:tint="@color/white"
+            tools:visibility="visible" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_weight="1"
+        android:ellipsize="end"
+        android:fontFamily="@font/almarai_bold"
+        android:maxLines="2"
+        android:textColor="@color/text_dark"
+        android:textSize="14sp"
+        tools:text="جبنة إضافية" />
+
+    <TextView
+        android:id="@+id/tv_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:fontFamily="@font/almarai_bold"
+        android:textColor="@color/text_secondary"
+        android:textSize="13sp"
+        tools:text="+3 ₪" />
+</LinearLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- لون أيقونات ونصوص الشريط السفلي: البرتقالي للتبويب المفتوح، والرمادي لغيره -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="@color/primary_orange" android:state_checked="true" />
+    <item android:color="@color/text_secondary" />
+</selector>

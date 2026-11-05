@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  حبّة لافندر صغيرة تتكرّر في شاشة الطلبات: كمية الصنف «2×»، وعدد الأصناف «2 صنف»،
+  ورقم الطلب في البطاقة المصغّرة «#2086». شكل واحد بثلاث مواضع، فالعين بتتعلمه مرة.
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/section_light" />
+    <corners android:radius="10dp" />
+</shape>

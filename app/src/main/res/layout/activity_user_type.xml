@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/white"
+    android:layoutDirection="rtl"
+    tools:context=".ui.auth.role.UserTypeActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:paddingTop="78dp"
+        android:paddingBottom="24dp">
+
+        <!-- الترحيب العلوي -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/welcome_madar"
+            android:textColor="@color/text_dark"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/almarai_bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="4dp"
+            android:text="@string/welcome_subtitle"
+            android:textColor="#5B4137"
+            android:textSize="14sp"
+            android:fontFamily="@font/almarai_regular"
+            android:layout_marginBottom="28dp" />
+
+        <!-- هيدر اختيار الحساب ورقم الخطوة -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="6dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/choose_account_type"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/almarai_bold" />
+
+            <!-- شارة الخطوة ١ من ٣ -->
+             </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/choose_account_hint"
+            android:textColor="@color/text_secondary"
+            android:textSize="13sp"
+            android:fontFamily="@font/almarai_regular"
+            android:layout_marginBottom="20dp" />
+
+        <!-- ================= كارد 1: زبون (مختار افتراضياً) ================= -->
+        <LinearLayout
+            android:id="@+id/card_customer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="16dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/bg_selectable_card"
+            android:clickable="true"
+            android:focusable="true">
+
+            <!-- أيقونة الكارد -->
+            <ImageView
+                android:id="@+id/iv_customer_icon"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_icon_selector"
+                android:src="@drawable/ic_shopping_bag"
+                android:padding="12dp"
+                app:tint="@color/white" />
+
+            <!-- النصوص -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginStart="14dp"
+                android:layout_marginEnd="14dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/role_customer"
+                        android:textColor="@color/text_dark"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/almarai_bold" />
+
+                    <!-- شارة الأكثر استخداماً -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        android:paddingTop="2dp"
+                        android:paddingBottom="2dp"
+                        android:text="@string/role_customer_badge"
+                        android:textColor="@color/primary_orange"
+                        android:textSize="10sp"
+                        android:fontFamily="@font/almarai_bold"
+                        android:background="@drawable/bg_badge_light_orange" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/role_customer_desc"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp"
+                    android:fontFamily="@font/almarai_regular" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ================= كارد 2: تاجر / متجر ================= -->
+        <LinearLayout
+            android:id="@+id/card_merchant"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="16dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/bg_selectable_card"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:id="@+id/iv_merchant_icon"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_icon_selector"
+                android:src="@drawable/ic_store"
+                android:padding="12dp"
+                app:tint="@color/secondary_navy" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginStart="14dp"
+                android:layout_marginEnd="14dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/role_merchant"
+                    android:textColor="@color/text_dark"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/almarai_bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/role_merchant_desc"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp"
+                    android:fontFamily="@font/almarai_regular" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ================= كارد 3: مهني / فني ================= -->
+        <LinearLayout
+            android:id="@+id/card_professional"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="16dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/bg_selectable_card"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:id="@+id/iv_professional_icon"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_icon_selector"
+                android:src="@drawable/ic_tools"
+                android:padding="12dp"
+                app:tint="@color/secondary_navy" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginStart="14dp"
+                android:layout_marginEnd="14dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/role_professional"
+                    android:textColor="@color/text_dark"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/almarai_bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/role_professional_desc"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp"
+                    android:fontFamily="@font/almarai_regular" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ================= كارد 4: مندوب توصيل ================= -->
+        <LinearLayout
+            android:id="@+id/card_delivery"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/bg_selectable_card"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:id="@+id/iv_delivery_icon"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_icon_selector"
+                android:src="@drawable/ic_delivery"
+                android:padding="12dp"
+                app:tint="@color/secondary_navy" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginStart="14dp"
+                android:layout_marginEnd="14dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/role_delivery"
+                    android:textColor="@color/text_dark"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/almarai_bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/role_delivery_desc"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp"
+                    android:fontFamily="@font/almarai_regular" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- رسالة التنبيه السفلية -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:padding="12dp"
+            android:background="@drawable/bg_notice_box"
+            android:layout_marginBottom="24dp">
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@drawable/ic_shield_check"
+                app:tint="@color/secondary_navy" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/profile_switch_notice"
+                android:textColor="@color/secondary_navy"
+                android:textSize="12sp"
+                android:fontFamily="@font/almarai_regular" />
+        </LinearLayout>
+
+        <!-- زر المتابعة -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_continue"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:text="@string/btn_continue_customer"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/almarai_bold"
+            app:backgroundTint="@color/primary_orange"
+            app:cornerRadius="12dp"
+            app:elevation="4dp"
+            app:icon="@drawable/ic_arrow_back"
+            app:iconGravity="textEnd"
+            app:iconTint="@color/white" />
+
+        <!-- رابط تسجيل الدخول -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_already_have_account"
+                android:textColor="@color/text_secondary"
+                android:textSize="14sp"
+                android:fontFamily="@font/almarai_regular" />
+
+            <TextView
+                android:id="@+id/tv_login_link"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:text="@string/text_login_action"
+                android:textColor="@color/secondary_navy"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/almarai_bold" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

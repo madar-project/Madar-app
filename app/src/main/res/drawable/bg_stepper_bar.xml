@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  وعاء العدّاد: كحلي حوافه كاملة الاستدارة، لأن الرسمة جعلته حبّة واحدة تجمع
+  الناقص والعدد والزائد. طوله هو عرض الحبّة، فما ينقسم على ثلاثة ملفات.
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/secondary_navy" />
+    <corners android:radius="22dp" />
+</shape>

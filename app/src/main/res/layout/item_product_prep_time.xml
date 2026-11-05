@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    بطاقة نطاق وقت تحضير واحد. البطاقة هي القابلة للنقر، لا سطرَاها، لأن النقر
+    اختيارٌ لا كتابة. تُبنى البطاقات من ملف القوائم في الكود فلا يتغيّر هنا شيء
+    حين تُضاف مدة جديدة.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:background="@drawable/bg_prep_time_card"
+    android:clickable="true"
+    android:focusable="true"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingTop="12dp"
+    android:paddingBottom="12dp">
+
+    <TextView
+        android:id="@+id/tv_prep_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/almarai_extra_bold"
+        android:textColor="@color/prep_time_value"
+        android:textSize="16sp"
+        tools:text="15-25" />
+
+    <TextView
+        android:id="@+id/tv_prep_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/almarai_regular"
+        android:text="@string/prep_time_unit"
+        android:textColor="@color/prep_time_label"
+        android:textSize="12sp" />
+</LinearLayout>

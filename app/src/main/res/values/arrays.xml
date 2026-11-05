@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    قوائم الاختيار في مدار.
+    النص العربي هو القيمة التي تُحفظ في قاعدة البيانات وتُعرض في شاشة التاجر وفي تصفّح الزبون،
+    فأي تعديل هنا يصل إلى الطرفين معاً.
+-->
+<resources>
+
+    <!-- تصنيفات المتاجر: تظهر في تسجيل التاجر وفي مسار تصفّح الزبون -->
+    <string-array name="store_categories">
+        <item>مطاعم ومأكولات</item>
+        <item>سوبرماركت</item>
+        <item>كافيه وحلويات</item>
+        <item>صيدلية وعناية</item>
+        <item>عطور</item>
+        <item>محلات عامة</item>
+    </string-array>
+
+    <!--
+        تصنيفات المتاجر التي تدخل تحت كل قسم من أقسام الزبون.
+        النصوص هنا هي قيم store_categories حرفياً، لأن التصنيف يُحفظ نصاً لا فهرساً،
+        فتغيير تسمية تصنيف هناك يجب أن يُغيَّر معه هنا أيضاً حتى لا يفقد القسم متاجره.
+        القسمان الأخيران بلا قائمة: مسار التوصيل الخاص والخدمات المهنية لم يُبنَ بعد.
+    -->
+    <string-array name="section_restaurants_categories">
+        <item>مطاعم ومأكولات</item>
+        <item>كافيه وحلويات</item>
+    </string-array>
+
+    <string-array name="section_markets_categories">
+        <item>سوبرماركت</item>
+        <item>محلات عامة</item>
+        <item>عطور</item>
+        <item>صيدلية وعناية</item>
+    </string-array>
+
+    <!--
+        مناطق العرض في رأس الرئيسية. لا إحداثيات ولا عنوان محفوظ في قاعدة البيانات بعد،
+        فهي للاختيار والذكر فقط إلى أن تُبنى خدمة العناوين وتُربط بالتصفية.
+    -->
+    <string-array name="customer_areas">
+        <item>غزة - الرمال</item>
+        <item>غزة - الصبرة</item>
+        <item>غزة - الشجاعية</item>
+        <item>غزة - الدرج</item>
+        <item>غزة - الزيتون</item>
+        <item>غزة - تل الهوى</item>
+        <item>غزة - الشيخ رضوان</item>
+        <item>جباليا</item>
+        <item>دير البلح</item>
+        <item>النصيرات</item>
+        <item>خان يونس</item>
+        <item>رفح</item>
+    </string-array>
+
+    <!-- أوقات العمل كما تظهر للتاجر -->
+    <string-array name="business_hours">
+        <item>06:00 ص</item>
+        <item>07:00 ص</item>
+        <item>08:00 ص</item>
+        <item>09:00 ص</item>
+        <item>10:00 ص</item>
+        <item>11:00 ص</item>
+        <item>12:00 م</item>
+        <item>01:00 م</item>
+        <item>02:00 م</item>
+        <item>03:00 م</item>
+        <item>04:00 م</item>
+        <item>05:00 م</item>
+        <item>06:00 م</item>
+        <item>07:00 م</item>
+        <item>08:00 م</item>
+        <item>09:00 م</item>
+        <item>10:00 م</item>
+        <item>11:00 م</item>
+    </string-array>
+
+    <!--
+        الوقت بصيغة 24 ساعة، محفور في قاعدة البيانات بالترتيب نفسه.
+        العرض عربي لأن التاجر يفكّر بالعقرب، والتخزين بصيغة 24 ساعة لأن لوحة التحكم
+        والحسابات تحتاج مقارنة نصية واحدة بين المتاجر.
+    -->
+    <string-array name="business_hour_values">
+        <item>06:00</item>
+        <item>07:00</item>
+        <item>08:00</item>
+        <item>09:00</item>
+        <item>10:00</item>
+        <item>11:00</item>
+        <item>12:00</item>
+        <item>13:00</item>
+        <item>14:00</item>
+        <item>15:00</item>
+        <item>16:00</item>
+        <item>17:00</item>
+        <item>18:00</item>
+        <item>19:00</item>
+        <item>20:00</item>
+        <item>21:00</item>
+        <item>22:00</item>
+        <item>23:00</item>
+    </string-array>
+
+    <!--
+        تصنيفات منتجات المتجر. النص العربي نفسه هو القيمة المحفوظة في products،
+        وهو ما يظهر في منيو التاجر وفي تصفّح الزبون، فلا ترجمة بين الطرفين.
+    -->
+    <string-array name="product_categories">
+        <item>وجبات رئيسية</item>
+        <item>أطباق جانبية</item>
+        <item>مشروبات</item>
+        <item>ساندويتشات</item>
+        <item>مقبلات</item>
+        <item>شوربات</item>
+        <item>حلويات</item>
+    </string-array>
+
+    <!--
+        رمز أمام كل تصنيف، ترتيبه مطابق لترتيب product_categories فيُقرأ منهما معاً
+        بالفهرس. هو هوية التصنيف لا هوية الطبق: «عصير برتقال» يمشي مع رمز المشروبات،
+        ولو أردنا رمزاً لكل طبق لاحتاج حقلاً يختاره التاجر عند إضافة المنتج.
+    -->
+    <string-array name="product_category_emojis">
+        <item>🍲</item>
+        <item>🍟</item>
+        <item>🥤</item>
+        <item>🥪</item>
+        <item>🥗</item>
+        <item>🥣</item>
+        <item>🍰</item>
+    </string-array>
+
+    <!--
+        نطاق وقت التحضير كما يراه التاجر، وقيمه بالدقائق تُحفظ في المنتج.
+        الترتيب من الأسرع للأبطأ، وهو نفسه ترتيب البطاقات على الشاشة من اليمين.
+    -->
+    <string-array name="product_prep_times">
+        <item>10-15</item>
+        <item>15-25</item>
+        <item>+30</item>
+    </string-array>
+
+    <string-array name="product_prep_time_values">
+        <item>10-15</item>
+        <item>15-25</item>
+        <item>30-60</item>
+    </string-array>
+
+</resources>

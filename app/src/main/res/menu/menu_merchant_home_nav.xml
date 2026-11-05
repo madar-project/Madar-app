@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- تبويبات واجهة التاجر: ترتيبها من اليمين لليسار لأن الشاشة عربية -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/tab_home"
+        android:icon="@drawable/ic_home"
+        android:title="@string/nav_home" />
+    <item
+        android:id="@+id/tab_orders"
+        android:icon="@drawable/ic_receipt"
+        android:title="@string/nav_orders" />
+    <item
+        android:id="@+id/tab_menu"
+        android:icon="@drawable/ic_restaurant"
+        android:title="@string/nav_menu" />
+    <item
+        android:id="@+id/tab_offers"
+        android:icon="@drawable/ic_offer"
+        android:title="@string/nav_offers" />
+    <item
+        android:id="@+id/tab_settings"
+        android:icon="@drawable/ic_settings"
+        android:title="@string/nav_settings" />
+</menu>

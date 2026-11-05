@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/white"
+    android:layoutDirection="rtl"
+    tools:context=".ui.auth.register.RegisterActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:paddingTop="40dp"
+        android:paddingBottom="24dp">
+
+        <!-- العنوان الرئيسي -->
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/register_title"
+            android:textColor="@color/primary_orange"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/almarai_bold" />
+
+        <!-- الوصف الفرعي -->
+        <TextView
+            android:id="@+id/tv_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/register_subtitle"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp"
+            android:lineSpacingExtra="4dp"
+            android:fontFamily="@font/almarai_regular" />
+
+        <!-- 1. الاسم الكامل -->
+        <TextView
+            android:id="@+id/tv_label_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="@string/label_full_name"
+            android:textColor="@color/secondary_navy"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/almarai_bold" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:boxBackgroundMode="none"
+            android:background="@drawable/bg_input_field"
+            app:startIconDrawable="@drawable/ic_person"
+            app:startIconTint="@color/text_secondary"
+            app:hintEnabled="false"
+            xmlns:app="http://schemas.android.com/apk/res-auto">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_name"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:background="@null"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:hint="@string/hint_full_name"
+                android:textColorHint="@color/text_secondary"
+                android:textColor="@color/text_dark"
+                android:textSize="14sp"
+                android:fontFamily="@font/almarai_regular"
+                android:inputType="textPersonName" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- 2. البريد الإلكتروني (هوية الحساب) -->
+        <TextView
+            android:id="@+id/tv_label_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/label_email"
+            android:textColor="@color/secondary_navy"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/almarai_bold" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:boxBackgroundMode="none"
+            android:background="@drawable/bg_input_field"
+            app:startIconDrawable="@drawable/ic_email"
+            app:startIconTint="@color/text_secondary"
+            app:hintEnabled="false">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_email"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:background="@null"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@._+-"
+                android:hint="@string/hint_email"
+                android:textColorHint="@color/text_secondary"
+                android:textColor="@color/text_dark"
+                android:textSize="14sp"
+                android:fontFamily="@font/almarai_regular"
+                android:inputType="textEmailAddress"
+                android:imeOptions="actionNext"
+                android:textDirection="rtl"
+                android:maxLength="80" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- 3. رقم الجوال -->
+        <TextView
+            android:id="@+id/tv_label_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/label_phone"
+            android:textColor="@color/secondary_navy"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/almarai_bold" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:boxBackgroundMode="none"
+            android:background="@drawable/bg_input_field"
+            app:startIconDrawable="@drawable/ic_phone"
+            app:startIconTint="@color/text_secondary"
+            app:hintEnabled="false"
+            xmlns:app="http://schemas.android.com/apk/res-auto">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_phone"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:background="@null"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:hint="@string/hint_phone"
+                android:textColorHint="#94A3B8"
+                android:textColor="@color/text_dark"
+                android:textSize="14sp"
+                android:fontFamily="@font/almarai_regular"
+                android:inputType="phone"
+                android:maxLength="14" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- ملاحظة كود الدولة -->
+        <TextView
+            android:id="@+id/tv_phone_note"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/phone_country_note"
+            android:textColor="@color/text_secondary"
+            android:textSize="11sp"
+            android:fontFamily="@font/almarai_regular" />
+
+        <!-- 4. كلمة المرور -->
+        <TextView
+            android:id="@+id/tv_label_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/label_password"
+            android:textColor="@color/secondary_navy"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/almarai_bold" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:boxBackgroundMode="none"
+            android:background="@drawable/bg_input_field"
+            app:startIconDrawable="@drawable/ic_lock"
+            app:startIconTint="@color/text_secondary"
+            app:endIconMode="password_toggle"
+            app:endIconTint="@color/text_secondary"
+            app:hintEnabled="false">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_password"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:background="@null"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:hint="@string/hint_password"
+                android:textColorHint="@color/text_secondary"
+                android:textColor="@color/text_dark"
+                android:textSize="14sp"
+                android:fontFamily="@font/almarai_regular"
+                android:inputType="textPassword"
+                android:imeOptions="actionNext"
+                android:maxLength="40" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- 5. تأكيد كلمة المرور -->
+        <TextView
+            android:id="@+id/tv_label_confirm_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/label_confirm_password"
+            android:textColor="@color/secondary_navy"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/almarai_bold" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_confirm_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:boxBackgroundMode="none"
+            android:background="@drawable/bg_input_field"
+            app:startIconDrawable="@drawable/ic_lock"
+            app:startIconTint="@color/text_secondary"
+            app:endIconMode="password_toggle"
+            app:endIconTint="@color/text_secondary"
+            app:hintEnabled="false">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_confirm_password"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:background="@null"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:hint="@string/hint_confirm_password"
+                android:textColorHint="@color/text_secondary"
+                android:textColor="@color/text_dark"
+                android:textSize="14sp"
+                android:fontFamily="@font/almarai_regular"
+                android:inputType="textPassword"
+                android:imeOptions="actionDone"
+                android:maxLength="40" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- شرط كلمة المرور -->
+        <TextView
+            android:id="@+id/tv_password_note"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/password_rules_note"
+            android:textColor="@color/text_secondary"
+            android:textSize="11sp"
+            android:fontFamily="@font/almarai_regular" />
+
+        <!-- زر إنشاء الحساب -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_register"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginTop="28dp"
+            android:text="@string/btn_register"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/almarai_bold"
+            app:backgroundTint="@color/primary_orange"
+            app:cornerRadius="12dp"
+            app:elevation="4dp"
+            xmlns:app="http://schemas.android.com/apk/res-auto" />
+
+        <!-- نص الانتقال لتسجيل الدخول -->
+        <LinearLayout
+            android:id="@+id/layout_login_link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="24dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_already_have_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_already_have_account"
+                android:textColor="@color/text_secondary"
+                android:textSize="14sp"
+                android:fontFamily="@font/almarai_regular" />
+
+            <TextView
+                android:id="@+id/tv_login_action"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:text="@string/text_login_action"
+                android:textColor="@color/secondary_navy"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/almarai_bold" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

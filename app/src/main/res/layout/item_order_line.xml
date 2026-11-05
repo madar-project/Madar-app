@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  صنف واحد داخل بطاقة الطلب. الكمية في أول السطر حبّة لافندر، وبعدها اسم الطبق
+  وملاحظة الزبون فوق بعض، والسعر في آخره. الملاحظة تختفي لو ما فيش: سطر فاضي
+  بين صنفين بيخلي اللائحة تبان مكسورة على غير سبب.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp">
+
+    <TextView
+        android:id="@+id/tvQuantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_pill_soft"
+        android:fontFamily="@font/almarai_bold"
+        android:paddingStart="9dp"
+        android:paddingTop="5dp"
+        android:paddingEnd="9dp"
+        android:paddingBottom="5dp"
+        android:textColor="@color/secondary_navy"
+        android:textSize="13sp"
+        tools:text="1×" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:fontFamily="@font/almarai_bold"
+            android:maxLines="1"
+            android:textColor="@color/text_dark"
+            android:textSize="15sp"
+            tools:text="شاورما دجاج" />
+
+        <TextView
+            android:id="@+id/tvNote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/almarai_regular"
+            android:maxLines="1"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp"
+            tools:text="بدون ثوم، مخلل إضافي" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:fontFamily="@font/almarai_bold"
+        android:textColor="@color/text_dark"
+        android:textSize="15sp"
+        tools:text="₪6.00" />
+</LinearLayout>

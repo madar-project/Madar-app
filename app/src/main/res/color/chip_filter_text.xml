@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  نص شريحة التصنيف: أبيض على البرتقالي المختار، وباهت على الفاتحة الباقية.
+  يُقرأ مع chip_filter_bg لأن حالتيهما واحدة: state_checked.
+-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="@color/white" android:state_checked="true" />
+    <item android:color="@color/text_secondary" />
+</selector>

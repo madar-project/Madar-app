@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  تبويب الطلبات عند التاجر: لائحة طلبات متجره الحية. الأحدث في بطاقة مفتوحة فوق
+  بأصنافها، وبقية الطلبات الجارية بطاقات مصغّرة تحتها.
+
+  الشرائح عدد لا تصفية معقّدة: «جديد (3)» و«قيد التحضير (1)» بيخلّوه يقرّر كم طلب
+  ناظر له قبل ما يفتح أي واحد، زي ما في التصميم.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:layoutDirection="rtl"
+    android:orientation="vertical"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
+    tools:context=".ui.merchant.orders.MerchantOrdersFragment">
+
+    <!-- ============ الرأس: العنوان والجرس ============ -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/almarai_extra_bold"
+            android:text="@string/nav_orders"
+            android:textColor="@color/text_dark"
+            android:textSize="24sp" />
+
+        <ImageView
+            android:id="@+id/iv_notifications"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="@string/menu_notifications"
+            android:src="@drawable/ic_notifications_none"
+            app:tint="@color/primary_orange" />
+    </LinearLayout>
+
+    <!-- ============ الشرائح: جديد وقيد التحضير، وعدد كل واحدة ============ -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:clipToPadding="false"
+        android:scrollbars="none">
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chip_group_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:selectionRequired="true"
+            app:singleLine="true"
+            app:singleSelection="true" />
+    </HorizontalScrollView>
+
+    <!-- ============ اللائحة ============ -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="16dp"
+            android:paddingBottom="24dp">
+
+            <TextView
+                android:id="@+id/tv_empty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_home_card"
+                android:fontFamily="@font/almarai_regular"
+                android:gravity="center"
+                android:padding="24dp"
+                android:textColor="@color/text_secondary"
+                android:textSize="14sp"
+                android:visibility="gone"
+                tools:text="@string/orders_empty_new"
+                tools:visibility="visible" />
+
+            <!-- الطلب المختار: بطاقة واحدة مفتوحة من item_order_full -->
+            <LinearLayout
+                android:id="@+id/ll_featured"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+            <!-- سطر «طلبات أخرى جارية» ورابط الأرشيف في نهايته -->
+            <LinearLayout
+                android:id="@+id/ll_other_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/almarai_extra_bold"
+                    android:text="@string/orders_other_active"
+                    android:textColor="@color/text_dark"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/tv_archive"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_pill_soft"
+                    android:fontFamily="@font/almarai_bold"
+                    android:paddingStart="12dp"
+                    android:paddingTop="6dp"
+                    android:paddingEnd="12dp"
+                    android:paddingBottom="6dp"
+                    android:textColor="@color/secondary_navy"
+                    android:textSize="13sp"
+                    tools:text="الأرشيف (14)" />
+            </LinearLayout>
+
+            <!-- بقية الطلبات: بطاقات مصغّرة من item_order_compact -->
+            <LinearLayout
+                android:id="@+id/ll_other"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

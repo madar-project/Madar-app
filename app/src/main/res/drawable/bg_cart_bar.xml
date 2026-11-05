@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  شريط السلة الثابت أسفل منيو المتجر: كحلي بزوايا 20dp، هو قطعة الرسمة الوحيدة
+  التي لا تمرّ مع اللائحة، لأن الزبون يفتّش عنه في كل مرة يضيف فيها صنف.
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/secondary_navy" />
+    <corners android:radius="20dp" />
+</shape>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    بطاقة إشعار واحدة. اللون وحده يفرّق المقروء عن غير المقروء: الكارت الأبيض مقروء،
+    والخوخى غير مقروء، ويُبدَّل في الكود بcardBackgroundColor لا برسمين مختلفين.
+
+    الزر داخل البطاقة يظهر على ما له هدف يفتحُه التاجر (طلب أو قسم عروض)، ويختفي على
+    الخبر الذي لا مكان يذهب إليه.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_notification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="0dp"
+        app:rippleColor="@color/section_light"
+        app:strokeColor="@color/field_stroke"
+        app:strokeWidth="1dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:id="@+id/box_icon"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/bg_icon_circle">
+
+                    <ImageView
+                        android:id="@+id/iv_icon"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="@string/menu_notifications"
+                        android:src="@drawable/ic_notifications"
+                        app:tint="@color/secondary_navy" />
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="12dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:baselineAligned="false"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_title"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/almarai_extra_bold"
+                            android:maxLines="1"
+                            android:textColor="@color/text_dark"
+                            android:textSize="16sp"
+                            tools:text="طلب جديد عاجل #2089" />
+
+                        <!-- نقطة غير المقروء: تختفي لمّا يقرأ التاجر السطر -->
+                        <View
+                            android:id="@+id/view_unread_dot"
+                            android:layout_width="8dp"
+                            android:layout_height="8dp"
+                            android:layout_marginStart="6dp"
+                            android:background="@drawable/bg_circle_orange"
+                            android:visibility="gone"
+                            tools:visibility="visible" />
+
+                        <TextView
+                            android:id="@+id/tv_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/almarai_regular"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="13sp"
+                            tools:text="منذ دقيقتين" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_body"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:fontFamily="@font/almarai_regular"
+                        android:lineSpacingExtra="2dp"
+                        android:textColor="@color/text_dark"
+                        android:textSize="14sp"
+                        tools:text="ورد طلب جديد من العميل خالد العلي بقيمة ₪ 14.50 بانتظار التأكيد." />
+                </LinearLayout>
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_action"
+                style="@style/Widget.MaterialComponents.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="52dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="14dp"
+                android:fontFamily="@font/almarai_bold"
+                android:paddingStart="24dp"
+                android:paddingEnd="24dp"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:visibility="gone"
+                app:backgroundTint="@color/primary_orange"
+                app:cornerRadius="14dp"
+                app:icon="@drawable/ic_arrow_back"
+                app:iconGravity="end"
+                app:iconTint="@color/white"
+                tools:text="عرض الطلب الآن"
+                tools:visibility="visible" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+</LinearLayout>

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  بطاقة منتج واحدة في لائحة المنيو: صورتها واسمها وتصنيفها وحالة توفرها وسعرها،
+  وتحتها سطر تحكّم: تعديل بياناته، وسويتش يقرّر هل يقدر الزبون يطلبه ولا لا.
+  الإخفاء وحده لا يُعرض لأن مدار لا تعرف صنفاً مخفياً وغير متوفر في وقت واحد.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp"
+    android:background="@drawable/bg_home_card"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- ============ الصورة والاسم والسعر ============ -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="false"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="76dp"
+            android:layout_height="76dp"
+            app:cardBackgroundColor="@color/section_light"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp">
+
+            <ImageView
+                android:id="@+id/iv_photo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/product_photo_description"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_restaurant"
+                app:tint="@color/text_secondary" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="@font/almarai_extra_bold"
+                android:maxLines="1"
+                android:textColor="@color/text_dark"
+                android:textSize="18sp"
+                tools:text="شاورما دجاج" />
+
+            <TextView
+                android:id="@+id/tv_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/almarai_regular"
+                android:maxLines="1"
+                android:textColor="@color/secondary_navy"
+                android:textSize="13sp"
+                tools:text="وجبات رئيسية" />
+
+            <TextView
+                android:id="@+id/tv_badge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_badge_success"
+                android:fontFamily="@font/almarai_bold"
+                android:paddingStart="10dp"
+                android:paddingTop="3dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="3dp"
+                android:text="@string/product_available"
+                android:textColor="@color/success_green"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/almarai_extra_bold"
+            android:textColor="@color/primary_orange"
+            android:textDirection="ltr"
+            android:textSize="20sp"
+            tools:text="₪6.00" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/field_stroke" />
+
+    <!-- ============ سطر التحكّم ============ -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:baselineAligned="false"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_edit"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="44dp"
+            android:fontFamily="@font/almarai_bold"
+            android:minWidth="0dp"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:text="@string/btn_edit_product"
+            android:textAllCaps="false"
+            android:textColor="@color/secondary_navy"
+            android:textSize="13sp"
+            app:backgroundTint="@color/section_light"
+            app:cornerRadius="12dp"
+            app:icon="@drawable/ic_edit"
+            app:iconGravity="textStart"
+            app:iconSize="18dp"
+            app:iconTint="@color/secondary_navy" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/almarai_bold"
+            android:text="@string/label_availability_switch"
+            android:textColor="@color/text_dark"
+            android:textSize="13sp" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/switch_available"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/label_availability_switch" />
+    </LinearLayout>
+</LinearLayout>

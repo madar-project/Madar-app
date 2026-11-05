@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  لهب داخل خانة «قيمة الخصم»: علامة أن الرقم المشتعل هو مقدار التخفيض.
+  evenOdd يترك قطرة صغيرة مفرّغة في بطن اللهب، وهي نفسها شكل الأيقونة في التصميم.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24"
+    android:tint="@color/primary_orange">
+    <path
+        android:fillColor="@android:color/white"
+        android:fillType="evenOdd"
+        android:pathData="M12,2C12,2 17.5,7.5 17.5,13.5C17.5,16.81 15.06,19.5 12,19.5C8.94,19.5 6.5,16.81 6.5,13.5C6.5,7.5 12,2 12,2ZM12,8.5C12,8.5 14.5,11 14.5,13.5C14.5,15.19 13.38,16.5 12,16.5C10.62,16.5 9.5,15.19 9.5,13.5C9.5,11 12,8.5 12,8.5Z" />
+</vector>

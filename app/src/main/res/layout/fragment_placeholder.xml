@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  محتوى مؤجّل لتبويب لم تُسلَّم شاشته بعد (الطلبات، العروض، الإعدادات).
+  يبقى التبويب في الشريط ويظهر هذه الصفحة بدل أن يقفز المستخدم شاشة نائمة.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:gravity="center"
+    android:layoutDirection="rtl"
+    android:orientation="vertical"
+    android:padding="32dp"
+    tools:context=".ui.merchant.home.PlaceholderFragment">
+
+    <FrameLayout
+        android:layout_width="88dp"
+        android:layout_height="88dp"
+        android:background="@drawable/bg_photo_circle">
+
+        <ImageView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_gravity="center"
+            android:contentDescription="@string/placeholder_title"
+            android:src="@drawable/ico_clock"
+            app:tint="@color/secondary_navy" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/almarai_extra_bold"
+        android:gravity="center"
+        android:text="@string/placeholder_title"
+        android:textColor="@color/text_dark"
+        android:textSize="18sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/almarai_regular"
+        android:gravity="center"
+        android:text="@string/msg_screen_coming_soon"
+        android:textColor="@color/text_secondary"
+        android:textSize="14sp" />
+</LinearLayout>

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  بطاقة متجر في لائحة التصفّح: صورة على اليمين، ثم الاسم والنبذة وسطر الوقت.
+
+  مصدر الحقول كلها merchants: storeName وdescription وأول صورة من المعرض (وشعار
+  المتجر إن لم يكن له معرض). شارة التقييم مبنية كما في الرسمة لكنها مخفية، لأن لا
+  تقييم محفوظ في قاعدة البيانات بعد، وسطر رسوم التوصيل مخفية للسبب نفسه.
+-->
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="14dp"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="0dp"
+    app:strokeColor="@color/field_stroke"
+    app:strokeWidth="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="14dp">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="92dp"
+                android:layout_height="92dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp">
+
+                <ImageView
+                    android:id="@+id/iv_store_photo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/section_light"
+                    android:contentDescription="@string/cust_store_photo"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_store"
+                    app:tint="@color/secondary_navy" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- لا حقل تقييم بعد: تبقى الشارة مبنية ومخفية حتى تُبنى التقييمات -->
+            <LinearLayout
+                android:id="@+id/pill_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|end"
+                android:layout_margin="6dp"
+                android:background="@drawable/bg_rating_pill"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="8dp"
+                android:paddingTop="3dp"
+                android:paddingEnd="8dp"
+                android:paddingBottom="3dp"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <ImageView
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_star" />
+
+                <TextView
+                    android:id="@+id/tv_rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:fontFamily="@font/almarai_bold"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"
+                    tools:text="4.9" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_store_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/almarai_extra_bold"
+                    android:maxLines="1"
+                    android:textColor="@color/text_dark"
+                    android:textSize="18sp"
+                    tools:text="مطعم التاج" />
+
+                <!-- يوضع عليها العرض إن كان للمتجر عرض سارٍ، وهي مخفية إن لم يكن -->
+                <TextView
+                    android:id="@+id/pill_offer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/bg_pill_soft"
+                    android:fontFamily="@font/almarai_bold"
+                    android:paddingStart="12dp"
+                    android:paddingTop="4dp"
+                    android:paddingEnd="12dp"
+                    android:paddingBottom="4dp"
+                    android:text="@string/cust_card_offer"
+                    android:textColor="@color/secondary_navy"
+                    android:textSize="13sp"
+                    android:visibility="gone"
+                    tools:visibility="visible" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_store_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:ellipsize="start"
+                android:fontFamily="@font/almarai_regular"
+                android:maxLines="1"
+                android:textColor="@color/text_secondary"
+                android:textSize="14sp"
+                tools:text="شاوارما وفطائر وصاج على أصوله" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/iv_eta_icon"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ico_clock"
+                    app:tint="@color/primary_orange" />
+
+                <TextView
+                    android:id="@+id/tv_prep_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:fontFamily="@font/almarai_bold"
+                    android:textColor="@color/text_dark"
+                    android:textSize="14sp"
+                    tools:text="15-25 دقيقة" />
+
+                <!--
+                    رسوم التوصيل كما في الرسمة، وهي مخفية: لا حقل رسوم في merchants،
+                    فسطرها يرجع حين يُبنى مسار الديليفري ويحفظ التاجر رسومه.
+                -->
+                <TextView
+                    android:id="@+id/tv_delivery_fee"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:fontFamily="@font/almarai_bold"
+                    android:textColor="@color/secondary_navy"
+                    android:textSize="14sp"
+                    android:visibility="gone"
+                    tools:visibility="gone" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

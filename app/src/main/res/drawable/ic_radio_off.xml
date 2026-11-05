@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  دائرة اختيار فاضية: كحلي شفاف على البياض، فاللون من لوحة التطبيق لا لون جديد.
+  ما فيها tint لأن لونها محسوب بشفافيتها، أي تلوين بيفسدها.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillAlpha="0.18"
+        android:fillColor="@color/secondary_navy"
+        android:pathData="M12,2 a10,10 0 1 0 0,20 a10,10 0 1 0 0,-20 z" />
+</vector>

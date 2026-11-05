@@ -1,0 +1,93 @@
+rules_version = '2';
+
+// قواعد الوصول إلى Firestore لتطبيق مدار.
+// تُلصق في وحدة التحكم: Firestore Database → تبويب Rules → Publish.
+//
+// الوضع الاختباري (test mode) الذي يُفعَّل عند إنشاء قاعدة البيانات يسمح بكل شيء
+// لمدة ثلاثين يوماً فقط، ثم يُغلق كل قراءة وكتابة. هذه القواعد بديله الدائم.
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    // صاحب الحساب نفسه فقط
+    function isOwner(uid) {
+      return signedIn() && request.auth.uid == uid;
+    }
+
+    // هوية المستخدم وأدواره.
+    // الحالة والأدوار قرارهما للإدارة وحدها، فلو سُمح لصاحب الحساب بتعديلهما
+    // منح تاجرٌ نفسه الاعتماد من جهازه.
+    // القراءة هنا محصورة بصاحب الحساب؛ لوحة التحكم تقرأ من سيرفرها بصلاحية
+    // تتجاوز هذه القواعد، فلا حاجة لتوسيعها لها.
+    match /users/{uid} {
+      allow read: if isOwner(uid);
+      allow create: if isOwner(uid);
+      allow update: if isOwner(uid)
+        && request.resource.data.get(['status'], '') == resource.data.get(['status'], '')
+        && request.resource.data.get(['roles'], []) == resource.data.get(['roles'], []);
+      allow delete: if false;
+    }
+
+    // ملف المتجر: بياناته العامة يراها الزبون قبل الدخول، ويكتبها صاحبه وحده.
+    // حالة الاعتماد للتاجر مغلقة إطلاقاً: القبول والرفض يقرّرهما سيرفر الإدارة،
+    // والرفض عندها حذف للوثيقة نفسها لا كتابة حالة فيها.
+    match /merchants/{uid} {
+      allow read: if true;
+      allow create: if isOwner(uid);
+      allow update: if isOwner(uid)
+        && request.resource.data.get(['status'], '') == resource.data.get(['status'], '');
+      allow delete: if false;
+    }
+
+    // منتجات المتاجر: الزبون يقرأها قبل أن يسجّل ليرى المنيو وأسعاره، ويكتبها
+    // صاحب المتجر وحده. نسبة المنتج لمتجر يملكه غيره مرفوضة، لأن storeId
+    // هو مفتاح الملكية: في الكتابة يُطابق الكاتب، وفي التحديث لا يُستبدل.
+    match /products/{productId} {
+      allow read: if true;
+      allow create: if signedIn()
+        && request.resource.data.get('storeId', '') == request.auth.uid;
+      allow update: if signedIn()
+        && resource.data.get('storeId', '') == request.auth.uid
+        && request.resource.data.get('storeId', '') == resource.data.get('storeId', '');
+      allow delete: if signedIn() && resource.data.get('storeId', '') == request.auth.uid;
+    }
+
+    // عروض الخصم: يقرأها الزبون ليرى السعر المخفوض، ويكتبها صاحب المتجر وحده.
+    // لا حالة للعرض في الوثيقة، لذلك لا حاجة لاستثناء على حقل كما في status.
+    match /offers/{offerId} {
+      allow read: if true;
+      allow create: if signedIn()
+        && request.resource.data.get('storeId', '') == request.auth.uid;
+      allow update: if signedIn()
+        && resource.data.get('storeId', '') == request.auth.uid
+        && request.resource.data.get('storeId', '') == resource.data.get('storeId', '');
+      allow delete: if signedIn() && resource.data.get('storeId', '') == request.auth.uid;
+    }
+
+    // طلبات الزبائن: فيها اسم الزبون ورقم تلفونه، فهي مش عامة كمنيو المتجر.
+    // يقرأها طرفا الطلب فقط: صاحب المتجر والزبون اللي طلبه. الإنشاء للزبون على
+    // نفسه، فمعرّف المشتري لازم يكون معرّف الكاتب وإلا نُسب طلب لغير صاحبه.
+    // والتعديل لصاحب المتجر وحده، لأن حالة الطلب قراره هو: القبول والرفض، وسبب
+    // الرفض وملاحظته بيكتبهم هو كمان ويقرؤهم الزبون من الوثيقة نفسها.
+    // لمّا تُبنى شاشة المندوب تُضاف قراءته هنا، مش استثناء في كود التطبيق.
+    match /orders/{orderId} {
+      allow read: if signedIn()
+        && (resource.data.get('storeId', '') == request.auth.uid
+            || resource.data.get('customerUid', '') == request.auth.uid);
+      allow create: if signedIn()
+        && request.resource.data.get('customerUid', '') == request.auth.uid
+        && request.resource.data.get('storeId', '') != '';
+      allow update: if signedIn() && resource.data.get('storeId', '') == request.auth.uid;
+      allow delete: if false;
+    }
+
+    // كل مجموعة أخرى ممنوعة، حتى لا تُفتح قاعدة البيانات على ما ليس في المشروع.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

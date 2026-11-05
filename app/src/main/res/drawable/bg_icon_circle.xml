@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  دائرة أيقونة الاتصال بالزبون في رأس بطاقة الطلب: لافندر هادي، والأيقونة فوقها
+  برتقالي. نفس منطق دائرة صورة المنتج، بس بلون فاتح لأن اللي جواها أيقونة لا صورة.
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <solid android:color="@color/section_light" />
+</shape>

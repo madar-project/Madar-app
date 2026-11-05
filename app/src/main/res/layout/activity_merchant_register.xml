@@ -1,0 +1,798 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fillViewport="true"
+    android:layoutDirection="rtl"
+    tools:context=".ui.merchant.register.MerchantRegisterActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:paddingTop="24dp"
+        android:paddingBottom="32dp">
+
+        <!-- العنوان مع زر الرجوع -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/btn_back"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/back"
+                android:src="@drawable/ic_arrow_back"
+                app:tint="@color/text_dark" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/almarai_bold"
+                android:text="@string/merchant_register_title"
+                android:textColor="@color/primary_orange"
+                android:textSize="22sp" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/almarai_regular"
+            android:lineSpacingExtra="4dp"
+            android:text="@string/merchant_register_subtitle"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp" />
+
+        <!-- ============ الهوية البصرية: شعار المتجر ============ -->
+        <FrameLayout
+            android:id="@+id/box_logo"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="24dp"
+            android:clickable="true"
+            android:contentDescription="@string/logo_description"
+            android:focusable="true">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:cardBackgroundColor="@color/section_light"
+                app:cardCornerRadius="60dp"
+                app:cardElevation="0dp">
+
+                <ImageView
+                    android:id="@+id/iv_logo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/logo_description"
+                    android:scaleType="centerCrop"
+                    android:visibility="gone"
+                    tools:visibility="visible" />
+
+                <ImageView
+                    android:id="@+id/iv_logo_placeholder"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/logo_description"
+                    android:src="@drawable/ic_store"
+                    app:tint="@color/text_secondary" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- شارة الكاميرا: توحي بأن الدائرة كلها قابلة للضغط -->
+            <FrameLayout
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_gravity="bottom|start"
+                android:background="@drawable/bg_circle_orange">
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/logo_description"
+                    android:src="@drawable/ic_camera"
+                    app:tint="@color/white" />
+            </FrameLayout>
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/almarai_bold"
+            android:gravity="center"
+            android:text="@string/merchant_visual_section"
+            android:textColor="@color/text_dark"
+            android:textSize="17sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/almarai_regular"
+            android:gravity="center"
+            android:lineSpacingExtra="3dp"
+            android:text="@string/logo_hint"
+            android:textColor="@color/text_secondary"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/btn_remove_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:background="?attr/selectableItemBackground"
+            android:fontFamily="@font/almarai_bold"
+            android:padding="8dp"
+            android:text="@string/btn_remove_logo"
+            android:textColor="@color/primary_orange"
+            android:textSize="14sp"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <!-- ============ البيانات الأساسية ============ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/bg_section_card"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_person"
+                android:drawablePadding="8dp"
+                android:fontFamily="@font/almarai_bold"
+                android:gravity="center_vertical"
+                android:text="@string/merchant_basic_section"
+                android:textColor="@color/secondary_navy"
+                android:textSize="17sp" />
+
+            <!-- الاسم الكامل: لا غنى عنه، فبطاقة المستخدم في قاعدة البيانات تفتحه -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/almarai_bold"
+                android:text="@string/label_full_name"
+                android:textColor="@color/secondary_navy"
+                android:textSize="15sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_input_field"
+                app:boxBackgroundMode="none"
+                app:hintEnabled="false"
+                app:startIconDrawable="@drawable/ic_person"
+                app:startIconTint="@color/text_secondary">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:background="@null"
+                    android:fontFamily="@font/almarai_regular"
+                    android:hint="@string/hint_full_name"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPersonName"
+                    android:maxLength="60"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:textColor="@color/text_dark"
+                    android:textColorHint="@color/text_secondary"
+                    android:textSize="14sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- اسم المتجر -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/almarai_bold"
+                android:text="@string/label_store_name"
+                android:textColor="@color/secondary_navy"
+                android:textSize="15sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_store_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_input_field"
+                app:boxBackgroundMode="none"
+                app:hintEnabled="false"
+                app:startIconDrawable="@drawable/ic_store"
+                app:startIconTint="@color/text_secondary">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_store_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:background="@null"
+                    android:fontFamily="@font/almarai_regular"
+                    android:hint="@string/hint_store_name"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPersonName"
+                    android:maxLength="60"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:textColor="@color/text_dark"
+                    android:textColorHint="@color/text_secondary"
+                    android:textSize="14sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- نوع النشاط: شرائح، يُضاف نصّها من ملف القوائم في الكود -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/almarai_bold"
+                android:text="@string/label_category"
+                android:textColor="@color/secondary_navy"
+                android:textSize="15sp" />
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chip_group_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:chipSpacingHorizontal="6dp"
+                android:backgroundTint="@color/white"
+                app:singleLine="false"
+                app:singleSelection="true" />
+
+            <!-- البريد الإلكتروني -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/almarai_bold"
+                android:text="@string/label_email"
+                android:textColor="@color/secondary_navy"
+                android:textSize="15sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_input_field"
+                app:boxBackgroundMode="none"
+                app:hintEnabled="false"
+                app:startIconDrawable="@drawable/ic_email"
+                app:startIconTint="@color/text_secondary">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:background="@null"
+                    android:fontFamily="@font/almarai_regular"
+                    android:hint="@string/hint_email"
+                    android:imeOptions="actionNext"
+                    android:inputType="textEmailAddress"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:textColor="@color/text_dark"
+                    android:textColorHint="@color/text_secondary"
+                    android:textSize="14sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- رقم الجوال -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/almarai_bold"
+                android:text="@string/label_phone"
+                android:textColor="@color/secondary_navy"
+                android:textSize="15sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_input_field"
+                app:boxBackgroundMode="none"
+                app:hintEnabled="false"
+                app:startIconDrawable="@drawable/ic_phone"
+                app:startIconTint="@color/text_secondary">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:background="@null"
+                    android:fontFamily="@font/almarai_regular"
+                    android:hint="@string/hint_phone"
+                    android:imeOptions="actionNext"
+                    android:inputType="phone"
+                    android:maxLength="10"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:textColor="@color/text_dark"
+                    android:textColorHint="@color/text_secondary"
+                    android:textSize="14sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- كلمتا المرور -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/almarai_bold"
+                android:text="@string/label_password"
+                android:textColor="@color/secondary_navy"
+                android:textSize="15sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_input_field"
+                app:boxBackgroundMode="none"
+                app:endIconMode="password_toggle"
+                app:hintEnabled="false"
+                app:startIconDrawable="@drawable/ic_lock"
+                app:startIconTint="@color/text_secondary">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:background="@null"
+                    android:fontFamily="@font/almarai_regular"
+                    android:hint="@string/hint_password"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPassword"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:textColor="@color/text_dark"
+                    android:textColorHint="@color/text_secondary"
+                    android:textSize="14sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/almarai_bold"
+                android:text="@string/label_confirm_password"
+                android:textColor="@color/secondary_navy"
+                android:textSize="15sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_confirm_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_input_field"
+                app:boxBackgroundMode="none"
+                app:endIconMode="password_toggle"
+                app:hintEnabled="false"
+                app:startIconDrawable="@drawable/ic_lock"
+                app:startIconTint="@color/text_secondary">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_confirm_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:background="@null"
+                    android:fontFamily="@font/almarai_regular"
+                    android:hint="@string/hint_confirm_password"
+                    android:imeOptions="actionDone"
+                    android:inputType="textPassword"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:textColor="@color/text_dark"
+                    android:textColorHint="@color/text_secondary"
+                    android:textSize="14sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- النبذة -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/almarai_bold"
+                android:text="@string/label_description"
+                android:textColor="@color/secondary_navy"
+                android:textSize="15sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_input_field"
+                app:boxBackgroundMode="none"
+                app:hintEnabled="false">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:fontFamily="@font/almarai_regular"
+                    android:gravity="top"
+                    android:hint="@string/hint_description"
+                    android:imeOptions="actionNext"
+                    android:inputType="textMultiLine"
+                    android:maxLength="300"
+                    android:minLines="3"
+                    android:padding="16dp"
+                    android:textColor="@color/text_dark"
+                    android:textColorHint="@color/text_secondary"
+                    android:textSize="14sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <!-- ============ الموقع ============ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_section_card"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/ic_location"
+                android:drawablePadding="8dp"
+                android:fontFamily="@font/almarai_bold"
+                android:gravity="center_vertical"
+                android:text="@string/merchant_location_section"
+                android:textColor="@color/secondary_navy"
+                android:textSize="17sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_input_field"
+                app:boxBackgroundMode="none"
+                app:hintEnabled="false"
+                app:startIconDrawable="@drawable/ic_location"
+                app:startIconTint="@color/text_secondary">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:background="@null"
+                    android:fontFamily="@font/almarai_regular"
+                    android:hint="@string/hint_address"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPostalAddress"
+                    android:maxLength="120"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:textColor="@color/text_dark"
+                    android:textColorHint="@color/text_secondary"
+                    android:textSize="14sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <!-- ============ أوقات العمل ============ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_section_card"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/ico_clock"
+                android:drawablePadding="8dp"
+                android:fontFamily="@font/almarai_bold"
+                android:gravity="center_vertical"
+                android:text="@string/merchant_hours_section"
+                android:textColor="@color/secondary_navy"
+                android:textSize="17sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/almarai_bold"
+                        android:text="@string/label_opening_time"
+                        android:textColor="@color/secondary_navy"
+                        android:textSize="15sp" />
+
+                    <!--
+                        السهم هنا مرسوم داخل الحقل، لا أيقونة نهاية: مكتبة Material
+                        ترفض أي endIcon مع boxBackgroundMode=none وتوقف التطبيق عند فتح الشاشة.
+                    -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/til_opening"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/bg_input_field"
+                        app:boxBackgroundMode="none"
+                        app:hintEnabled="false">
+
+                        <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                            android:id="@+id/actv_opening"
+                            android:layout_width="match_parent"
+                            android:layout_height="52dp"
+                            android:background="@null"
+                            android:clickable="true"
+                            android:drawableEnd="@drawable/ic_arrow_drop_down"
+                            android:drawablePadding="4dp"
+                            android:drawableTint="@color/text_secondary"
+                            android:fontFamily="@font/almarai_regular"
+                            android:inputType="none"
+                            android:paddingStart="16dp"
+                            android:paddingEnd="16dp"
+                            android:textColor="@color/text_dark"
+                            android:textSize="14sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/almarai_bold"
+                        android:text="@string/label_closing_time"
+                        android:textColor="@color/secondary_navy"
+                        android:textSize="15sp" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/til_closing"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/bg_input_field"
+                        app:boxBackgroundMode="none"
+                        app:hintEnabled="false">
+
+                        <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                            android:id="@+id/actv_closing"
+                            android:layout_width="match_parent"
+                            android:layout_height="52dp"
+                            android:background="@null"
+                            android:clickable="true"
+                            android:drawableEnd="@drawable/ic_arrow_drop_down"
+                            android:drawablePadding="4dp"
+                            android:drawableTint="@color/text_secondary"
+                            android:fontFamily="@font/almarai_regular"
+                            android:inputType="none"
+                            android:paddingStart="16dp"
+                            android:paddingEnd="16dp"
+                            android:textColor="@color/text_dark"
+                            android:textSize="14sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ============ معرض الصور ============ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_section_card"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableEnd="@drawable/ic_camera"
+                    android:drawablePadding="8dp"
+                    android:fontFamily="@font/almarai_bold"
+                    android:gravity="center_vertical"
+                    android:text="@string/merchant_gallery_section"
+                    android:textColor="@color/secondary_navy"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/tv_gallery_counter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/almarai_regular"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp"
+                    tools:text="0 / 6 صور" />
+            </LinearLayout>
+
+            <!-- بلاطات الصور، وتُضاف مربّعة مربّعة في الكود مع مربّع الإضافة في آخرها -->
+            <GridLayout
+                android:id="@+id/gallery_grid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:columnCount="3" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/almarai_regular"
+                android:lineSpacingExtra="3dp"
+                android:text="@string/gallery_note"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- ============ طرق الدفع ============ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_section_card"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/ic_credit_card"
+                android:drawablePadding="8dp"
+                android:fontFamily="@font/almarai_bold"
+                android:gravity="center_vertical"
+                android:text="@string/merchant_payment_section"
+                android:textColor="@color/secondary_navy"
+                android:textSize="17sp" />
+
+            <CheckBox
+                android:id="@+id/cb_jawwal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:checked="true"
+                android:fontFamily="@font/almarai_bold"
+                android:text="@string/payment_jawwal"
+                android:textColor="@color/text_dark"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:fontFamily="@font/almarai_regular"
+                android:text="@string/payment_jawwal_desc"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp" />
+
+            <CheckBox
+                android:id="@+id/cb_palpay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:checked="true"
+                android:fontFamily="@font/almarai_bold"
+                android:text="@string/payment_palpay"
+                android:textColor="@color/text_dark"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:fontFamily="@font/almarai_regular"
+                android:text="@string/payment_palpay_desc"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp" />
+
+            <CheckBox
+                android:id="@+id/cb_bop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:checked="true"
+                android:fontFamily="@font/almarai_bold"
+                android:text="@string/payment_bop"
+                android:textColor="@color/text_dark"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:fontFamily="@font/almarai_regular"
+                android:text="@string/payment_bop_desc"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- ============ الإرسال ============ -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_submit"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="@color/primary_orange"
+            android:fontFamily="@font/almarai_extra_bold"
+            android:text="@string/btn_merchant_save"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:cornerRadius="14dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/almarai_regular"
+                android:gravity="start"
+                android:lineSpacingExtra="3dp"
+                android:text="@string/merchant_terms"
+                android:textColor="@color/text_secondary"
+                android:layout_marginEnd="2dp"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/almarai_bold"
+                android:lineSpacingExtra="3dp"
+                android:text="@string/merchant_terms_"
+                android:textColor="#A93700"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+</ScrollView>

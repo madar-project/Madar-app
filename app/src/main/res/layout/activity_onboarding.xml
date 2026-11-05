@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+    شاشة المقدمة (Onboarding): شرح فكرة التطبيق للزيارة الأولى.
+    الترتيب مطابق للتصميم: الشرائح، ثم نقاط المؤشر، ثم زر المتابعة، وتحته «تخطّي».
+-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:paddingHorizontal="24dp"
+    tools:context=".ui.onboarding.OnboardingActivity">
+
+    <!-- المؤشرات + زر المتابعة + تخطّي، ملتصقة بأسفل الشاشة -->
+    <LinearLayout
+        android:id="@+id/layoutBottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="150dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabIndicator"
+            android:layout_width="match_parent"
+            android:layout_height="12dp"
+            android:background="@android:color/transparent"
+            app:tabBackground="@drawable/tab_selector"
+            app:tabGravity="center"
+            app:tabIndicatorHeight="0dp"
+            app:tabMinWidth="0dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginTop="10dp"
+            app:tabPaddingTop="0dp"
+            app:tabPaddingBottom="0dp"
+            android:layout_marginBottom="10dp"
+            app:tabRippleColor="@null" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnNext"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:fontFamily="@font/almarai_bold"
+            android:text="@string/onboarding_next"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:icon="@drawable/ic_arrow_back"
+            app:iconGravity="textEnd"
+            app:backgroundTint="@color/primary_orange"
+            app:cornerRadius="12dp" />
+
+        <TextView
+            android:id="@+id/tvSkip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/almarai_regular"
+            android:padding="17dp"
+            android:text="@string/onboarding_skip"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+    <!-- شرائح المقدمة -->
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/layoutBottom"
+        android:layout_alignParentTop="true" />
+
+</RelativeLayout>

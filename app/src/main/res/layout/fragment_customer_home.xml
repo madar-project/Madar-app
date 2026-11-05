@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  الرئيسية كما سلّمتها Figma: تحية، شريط منطقة، بحث، شريط عرض، أربعة أقسام، وبطاقة طلب نشط.
+
+  ترتيب العناصر على الشاشة هو ترتيبها في الملف لأن الجذر rtl: أول عنصر يظهر على اليمين،
+  وآخرها على اليسار، فلا انعكاس مفاجئ حين يقرأ أحد الملف.
+
+  ما ليس في قاعدة البيانات يبقى بلا نص في الكود: شريط العرض ثابت، وشارة دقائق الوصول
+  مخفية، لأن وقت الوصول الحقيقي لا يُعرف إلا حين يُبنى مسار الديليفري.
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fillViewport="true"
+    android:layoutDirection="rtl"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="20dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="24dp">
+
+        <!-- ============ الرأس: التحية والجرس ============ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/almarai_bold"
+                    android:text="@string/cust_welcome"
+                    android:textColor="@color/primary_orange"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_customer_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:ellipsize="start"
+                    android:fontFamily="@font/almarai_extra_bold"
+                    android:maxLines="1"
+                    android:textColor="@color/text_dark"
+                    android:textSize="24sp" />
+            </LinearLayout>
+
+            <!-- TODO شاشة إشعارات الزبون لم يُسلَّم تصميمها بعد: الجرس ظاهر كما في الرسمة ولا يفتح شيئاً -->
+            <ImageView
+                android:id="@+id/iv_notifications"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:contentDescription="@string/notif_title"
+                android:src="@drawable/ic_notifications_none"
+                app:tint="@color/primary_orange" />
+        </LinearLayout>
+
+        <!-- ============ شريط المنطقة ============ -->
+        <!--
+            المنطقة محفوظة على الجهاز لا في الحساب، ولا تصفية عليها بعد: متاجر مدار
+            بلا حقل مدينة، فاختيارها اليوم ذكرى لا شرط بحث.
+        -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardBackgroundColor="@color/section_light"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="14dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:contentDescription="@string/cust_location_sheet_title"
+                    android:src="@drawable/ic_location"
+                    app:tint="@color/primary_orange" />
+
+                <TextView
+                    android:id="@+id/tv_location"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/almarai_bold"
+                    android:maxLines="1"
+                    android:text="@string/cust_location_default"
+                    android:textColor="@color/text_dark"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/btn_change_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/almarai_bold"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="0dp"
+                    android:text="@string/cust_location_change"
+                    android:textColor="@color/primary_orange"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:contentDescription="@string/cust_location_change"
+                    android:src="@drawable/ic_chevron_left"
+                    app:tint="@color/primary_orange" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ============ البحث والتصفية ============ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/field_stroke"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="14dp"
+                    android:paddingTop="12dp"
+                    android:paddingEnd="14dp"
+                    android:paddingBottom="12dp">
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:contentDescription="@string/cust_search_hint"
+                        android:src="@drawable/ic_search"
+                        app:tint="@color/text_secondary" />
+
+                    <EditText
+                        android:id="@+id/et_search"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:fontFamily="@font/almarai_regular"
+                        android:hint="@string/cust_search_hint"
+                        android:imeOptions="actionSearch"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:textColor="@color/text_dark"
+                        android:textColorHint="@color/text_secondary"
+                        android:textSize="15sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <FrameLayout
+                android:id="@+id/btn_filter"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="12dp"
+                android:background="@drawable/bg_section_card">
+
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/cust_filter_hint"
+                    android:src="@drawable/ic_tune"
+                    app:tint="@color/secondary_navy" />
+            </FrameLayout>
+        </LinearLayout>
+
+        <!-- ============ شريط العرض ============ -->
+        <!-- TODO عرض من المنصة لا من تاجر: لا مجموعة promotions في قاعدة البيانات بعد، فالنص ثابت -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardBackgroundColor="@color/secondary_navy"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="18dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/almarai_regular"
+                        android:text="@string/cust_promo_today"
+                        android:textColor="@color/white_translucent"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:fontFamily="@font/almarai_extra_bold"
+                        android:text="@string/cust_promo_title"
+                        android:textColor="@color/white"
+                        android:textSize="21sp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/almarai_bold"
+                            android:text="@string/cust_promo_code_label"
+                            android:textColor="@color/white"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="6dp"
+                            android:fontFamily="@font/almarai_extra_bold"
+                            android:text="@string/cust_promo_code"
+                            android:textColor="@color/white"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="58dp"
+                    android:layout_height="58dp"
+                    android:background="@drawable/bg_circle_translucent">
+
+                    <ImageView
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="@string/cust_promo_title"
+                        android:src="@drawable/ic_percent"
+                        app:tint="@color/white" />
+                </FrameLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ============ الأقسام الأربعة: صفّان، كل صف فيه بطاقتان ============ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:orientation="horizontal">
+
+            <include
+                android:id="@+id/card_restaurants"
+                layout="@layout/card_customer_section"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <include
+                android:id="@+id/card_markets"
+                layout="@layout/card_customer_section"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal">
+
+            <include
+                android:id="@+id/card_services"
+                layout="@layout/card_customer_section"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <include
+                android:id="@+id/card_delivery"
+                layout="@layout/card_customer_section"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <!-- ============ بطاقة الطلب النشط ============ -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_active_order"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:visibility="gone"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/field_stroke"
+            app:strokeWidth="1dp"
+            tools:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="9dp"
+                        android:layout_height="9dp"
+                        android:background="@drawable/bg_circle_orange" />
+
+                    <TextView
+                        android:id="@+id/tv_track_title"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/almarai_extra_bold"
+                        android:maxLines="1"
+                        android:textColor="@color/text_dark"
+                        android:textSize="18sp" />
+
+                    <!--
+                        شارة الدقائق كما في الرسمة، وهي مخفية: لا حقل وقت وصول محفوظ،
+                        والتقدير الوحيد الموجود هو وقت تحضير الطبق عند التاجر لا زمن الطريق.
+                    -->
+                    <TextView
+                        android:id="@+id/tv_track_eta"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_badge_peach"
+                        android:fontFamily="@font/almarai_bold"
+                        android:paddingStart="12dp"
+                        android:paddingTop="5dp"
+                        android:paddingEnd="12dp"
+                        android:paddingBottom="5dp"
+                        android:textColor="@color/text_dark"
+                        android:textSize="13sp"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <FrameLayout
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/bg_icon_tile">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="@string/cust_track_action"
+                            android:src="@drawable/ic_delivery"
+                            app:tint="@color/secondary_navy" />
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_track_store"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/almarai_bold"
+                            android:maxLines="1"
+                            android:textColor="@color/text_dark"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:id="@+id/tv_track_total"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/almarai_regular"
+                            android:maxLines="1"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_track"
+                        style="@style/Widget.MaterialComponents.Button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="44dp"
+                        android:layout_marginStart="10dp"
+                        android:fontFamily="@font/almarai_bold"
+                        android:minWidth="0dp"
+                        android:paddingStart="18dp"
+                        android:paddingEnd="18dp"
+                        android:text="@string/cust_track_action"
+                        android:textSize="14sp"
+                        app:backgroundTint="@color/secondary_navy"
+                        app:cornerRadius="12dp" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+</ScrollView>

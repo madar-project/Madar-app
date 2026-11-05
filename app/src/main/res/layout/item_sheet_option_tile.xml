@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  بلاطة خيار واحد: دائرة اختيار ثم الاسم ثم السعر إن كان. البلاطة المختارة خوخية
+  بحد برتقالي، والحالة تُضبَط في الكود بـ setSelected لأن النافذة تعرف وحدها أيّ
+  بلاطة في المجموعة مختارة — ولا دائرة في النظام تُطلب منها حالة لا تملكها.
+
+  السعر مختفي إذا كان صفراً: «خبز صاج» لا يزداد عليه شيء، فصفراً لا يعني «مجاني»
+  بل يعني أن السؤال عن المجاني لا يُسأل.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_option_tile"
+    android:clickable="true"
+    android:focusable="true"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="12dp">
+
+    <ImageView
+        android:id="@+id/iv_marker"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_radio_off" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_weight="1"
+        android:ellipsize="end"
+        android:fontFamily="@font/almarai_bold"
+        android:maxLines="2"
+        android:textColor="@color/text_dark"
+        android:textSize="14sp"
+        tools:text="خبز صاج" />
+
+    <TextView
+        android:id="@+id/tv_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:fontFamily="@font/almarai_bold"
+        android:textColor="@color/text_secondary"
+        android:textSize="13sp"
+        tools:text="3 ₪" />
+</LinearLayout>

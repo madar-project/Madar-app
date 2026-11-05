@@ -1,0 +1,660 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  منيو المتجر كما يفتح للزبون من بطاقة المتجر: غلاف بالاسم والنبذة وحالة الفتح،
+  صف بلاطات معلومات، شريط تصنيفات الأصناف، ولائحة الأصناف، فوقها شريط سلة ثابت.
+
+  الغلاف والصف العلوي يقرآن من merchants، والشرائح والبطاقات يقرآن من products.
+  ما لا حقل له لا يُعرض: بلاطة التقييم وبلاطة رسوم التوصيل مبنيتان ومخفيتان لأن
+  قيمتهما ستُحسب من المسافة بين الزبون والمتجر ومن تقييمات الزبائن، ولا واحد من
+  الاثنين محفوظ بعد. مكانهما في الصف يبقى محجوزاً حتى يُبنى مصدرهما فتظهران بلا تغيير.
+
+  الغلاف والبلاطات والشرائح تمرّ مع اللائحة داخل نفس التمرير: المنيو لائحة متجر واحد
+  بعشرات البطاقات، فلا داعي لتقسيمها إلى لائحتين إحداهما لا تتمدد.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:layoutDirection="rtl"
+    android:orientation="vertical">
+
+    <!-- ============ الرأس: رجوع، عنوان، جرس ============ -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="20dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="20dp">
+
+        <!--
+            السهم في الرسمة يتجه يميناً لأنه رجوع في شاشة من اليمين لليسار، والملف
+            الأصلي يرسمه شمالاً: يُقلب على الشاشة لا في الملف، حتى لا ينقلب رجوع بقية
+            الشاشات التي تعتمد نفس الملف.
+        -->
+        <ImageView
+            android:id="@+id/btn_back"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:contentDescription="@string/cust_menu_back"
+            android:focusable="true"
+            android:rotation="180"
+            android:src="@drawable/ic_arrow_back"
+            app:tint="@color/text_dark" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/almarai_bold"
+            android:text="@string/cust_menu_title"
+            android:textColor="@color/text_dark"
+            android:textSize="18sp" />
+
+        <!-- TODO شاشة إشعارات الزبون لم تُسلَّم رسمتها بعد: الجرس ظاهر كما في الرسمة ولا يفتح شيئاً -->
+        <ImageView
+            android:id="@+id/iv_notifications"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:contentDescription="@string/notif_title"
+            android:src="@drawable/ic_notifications_none"
+            app:tint="@color/primary_orange" />
+    </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="16dp">
+
+            <!-- ============ الغلاف ============ -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="20dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="190dp">
+
+                    <ImageView
+                        android:id="@+id/iv_hero_photo"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/section_light"
+                        android:contentDescription="@string/cust_store_photo"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_store"
+                        app:tint="@color/secondary_navy" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_hero_scrim" />
+
+                    <!-- حالة الفتح: النقطة أولاً فهي على يمين النص كما في الرسمة -->
+                    <LinearLayout
+                        android:id="@+id/pill_open_state"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="top|start"
+                        android:layout_margin="12dp"
+                        android:background="@drawable/bg_pill_white"
+                        android:elevation="2dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingStart="10dp"
+                        android:paddingTop="5dp"
+                        android:paddingEnd="12dp"
+                        android:paddingBottom="5dp">
+
+                        <View
+                            android:id="@+id/view_status_dot"
+                            android:layout_width="8dp"
+                            android:layout_height="8dp"
+                            android:background="@drawable/bg_status_dot" />
+
+                        <TextView
+                            android:id="@+id/tv_open_state"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="6dp"
+                            android:fontFamily="@font/almarai_bold"
+                            android:textColor="@color/text_dark"
+                            android:textSize="13sp"
+                            tools:text="@string/cust_menu_open_now" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="14dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tv_store_name"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:ellipsize="end"
+                                android:fontFamily="@font/almarai_extra_bold"
+                                android:maxLines="1"
+                                android:textColor="@color/white"
+                                android:textSize="20sp"
+                                tools:text="مطعم التاج" />
+
+                            <TextView
+                                android:id="@+id/tv_store_description"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:ellipsize="end"
+                                android:fontFamily="@font/almarai_regular"
+                                android:maxLines="1"
+                                android:textColor="@color/white_translucent"
+                                android:textSize="13sp"
+                                tools:text="شاوارما ومشويات طازجة" />
+                        </LinearLayout>
+
+                        <!-- مربع تصنيف المتجر: أيقونة واحدة بيضاء فوق الغلاف كما في الرسمة -->
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="44dp"
+                            android:layout_height="44dp"
+                            android:layout_marginStart="10dp"
+                            app:cardBackgroundColor="@color/white"
+                            app:cardCornerRadius="12dp"
+                            app:cardElevation="2dp">
+
+                            <ImageView
+                                android:id="@+id/iv_category_icon"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_gravity="center"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_restaurant"
+                                app:tint="#A93700" />
+                        </com.google.android.material.card.MaterialCardView>
+                    </LinearLayout>
+                </FrameLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ============ صف البلاطات ============ -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:orientation="horizontal"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp">
+
+                <!-- مخفية: لا حقل تقييم بعد، وقيمتها ستُحسب من تقييمات الزبائن -->
+                <LinearLayout
+                    android:id="@+id/tile_rating"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_lavender_field"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    android:visibility="gone"
+                    tools:visibility="gone">
+
+                    <FrameLayout
+                        android:layout_width="34dp"
+                        android:layout_height="34dp"
+                        android:background="@drawable/bg_peach_square">
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_star" />
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_rating_value"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/almarai_extra_bold"
+                            android:maxLines="1"
+                            android:textColor="@color/text_dark"
+                            android:textSize="15sp"
+                            tools:text="4.8" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/almarai_regular"
+                            android:maxLines="1"
+                            android:text="@string/cust_menu_rating_label"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tile_prep"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_lavender_field"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <FrameLayout
+                        android:layout_width="34dp"
+                        android:layout_height="34dp"
+                        android:background="@drawable/bg_icon_tile">
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ico_clock"
+                            app:tint="@color/secondary_navy" />
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_prep_value"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:ellipsize="end"
+                            android:fontFamily="@font/almarai_bold"
+                            android:maxLines="1"
+                            android:textColor="@color/text_dark"
+                            android:textSize="14sp"
+                            tools:text="25-35 د" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/almarai_regular"
+                            android:maxLines="1"
+                            android:text="@string/cust_menu_prep_label"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tile_address"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_lavender_field"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <FrameLayout
+                        android:layout_width="34dp"
+                        android:layout_height="34dp"
+                        android:background="@drawable/bg_icon_tile">
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_location"
+                            app:tint="@color/secondary_navy" />
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_address_value"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/almarai_bold"
+                            android:maxLines="1"
+                            android:textColor="@color/text_dark"
+                            android:textSize="15sp"
+                            tools:text="الرمال" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/almarai_regular"
+                            android:maxLines="1"
+                            android:text="@string/cust_menu_address_label"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tile_hours"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_lavender_field"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <FrameLayout
+                        android:layout_width="34dp"
+                        android:layout_height="34dp"
+                        android:background="@drawable/bg_icon_tile">
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_calendar"
+                            app:tint="@color/secondary_navy" />
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_hours_value"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/almarai_bold"
+                            android:maxLines="1"
+                            android:textColor="@color/text_dark"
+                            android:textSize="15sp"
+                            tools:text="11:00 م" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/almarai_regular"
+                            android:maxLines="1"
+                            android:text="@string/cust_menu_hours_label"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- مخفية: رسوم التوصيل تُحسب من المسافة، والمسافة لم تُحفظ بعد -->
+                <LinearLayout
+                    android:id="@+id/tile_delivery"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_lavender_field"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    android:visibility="gone"
+                    tools:visibility="gone">
+
+                    <FrameLayout
+                        android:layout_width="34dp"
+                        android:layout_height="34dp"
+                        android:background="@drawable/bg_icon_tile">
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_truck"
+                            app:tint="@color/secondary_navy" />
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_delivery_value"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/almarai_extra_bold"
+                            android:maxLines="1"
+                            android:textColor="@color/text_dark"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/almarai_regular"
+                            android:maxLines="1"
+                            android:text="@string/cust_menu_delivery_label"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- ============ شريط تصنيفات الأصناف ============ -->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:scrollbars="none">
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/chip_group_filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    app:chipSpacingHorizontal="8dp"
+                    app:selectionRequired="true"
+                    app:singleLine="true"
+                    app:singleSelection="true" />
+            </HorizontalScrollView>
+
+            <!-- ============ لائحة الأصناف ============ -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_products"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:clipToPadding="false"
+                android:nestedScrollingEnabled="false"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                tools:itemCount="3"
+                tools:listitem="@layout/item_customer_menu_product" />
+
+            <LinearLayout
+                android:id="@+id/layout_empty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingStart="40dp"
+                android:paddingTop="40dp"
+                android:paddingEnd="40dp"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <ImageView
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_restaurant"
+                    app:tint="@color/field_stroke" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:fontFamily="@font/almarai_extra_bold"
+                    android:text="@string/cust_menu_empty_title"
+                    android:textColor="@color/text_dark"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:fontFamily="@font/almarai_regular"
+                    android:gravity="center"
+                    android:text="@string/cust_menu_empty_hint"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- ============ شريط السلة: ثابت أسفل الشاشة ولا يظهر إلا إذا كان فيها شيء ============ -->
+    <LinearLayout
+        android:id="@+id/card_cart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/bg_cart_bar"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <FrameLayout
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="@drawable/bg_cart_tile">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_gravity="center"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_shopping_bag"
+                app:tint="@color/white" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_cart_items"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="@font/almarai_regular"
+                android:maxLines="1"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                tools:text="أضف في السلة" />
+
+            <TextView
+                android:id="@+id/tv_cart_total"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="@font/almarai_regular"
+                android:maxLines="1"
+                android:textColor="#FFDBCF"
+                android:textSize="12sp"
+                tools:text="المجموع 40 ₪" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btn_cart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/bg_action_square"
+            android:backgroundTint="@color/primary_orange"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="14dp"
+            android:paddingTop="12dp"
+            android:paddingEnd="12dp"
+            android:paddingBottom="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/almarai_bold"
+                android:text="@string/cust_menu_cart_action"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <!-- السهم يشير يساراً: الاتجاه الأمامي في شاشة من اليمين لليسار -->
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginStart="6dp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_arrow_back"
+                app:tint="@color/white" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

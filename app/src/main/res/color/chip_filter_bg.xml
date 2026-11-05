@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  خلفية شريحة التصنيف: المختارة برتقالي مصمت، وغيرها فاتح. نفس الملف يُستخدم في
+  تسجيل التاجر وفي شاشة إضافة المنتج، فاختيار تصنيف يبدو واحداً في كل الشاشات.
+-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="@color/primary_orange" android:state_checked="true" />
+    <item android:color="@color/section_light" />
+</selector>

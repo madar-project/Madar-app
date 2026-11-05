@@ -1,0 +1,31 @@
+<!--
+    ختم «متجر موثّق» بجانب اسم المتجر: مربّع ومربّع آخر مائل خمسة وأربعين درجة
+    فيصير نجمة ثمانية رؤوس، وفوقها علامة صح بيضاء. اللونان ثابتان في الرسم لا tint،
+    لأن الختم برتقالي وفوقه أبيض، وأي تلوين خارجي كان سيسوّيهم لوناً واحداً.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <path
+        android:fillColor="@color/primary_orange"
+        android:pathData="M4.5,4.5 h15 v15 h-15 z" />
+
+    <group
+        android:pivotX="12"
+        android:pivotY="12"
+        android:rotation="45">
+        <path
+            android:fillColor="@color/primary_orange"
+            android:pathData="M4.5,4.5 h15 v15 h-15 z" />
+    </group>
+
+    <path
+        android:pathData="M8,12.2 l2.7,2.7 l5.3,-5.6"
+        android:strokeColor="@color/white"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:strokeWidth="2.2" />
+</vector>

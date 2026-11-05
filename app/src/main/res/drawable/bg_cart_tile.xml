@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  مربع أيقونة السلة داخل الشريط الكحلي: أبيض شفاف بربع الكثافة، لأنه فوق كحلي لا فوق
+  أبيض، ولو أُعطي لافندر البلاطات لاختفى. الشفافية تُترك في اللون لا في View، حتى
+  يبقى المربع مرئياً ولو تغيّر لون الشريط.
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="#33FFFFFF" />
+    <corners android:radius="12dp" />
+</shape>

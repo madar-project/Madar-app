@@ -1,3 +1,582 @@
 <resources>
-    <string name="app_name">madar</string>
+    <string name="app_name">Madar</string>
+    <string name="onboarding_next">التالي </string>
+    <string name="onboarding_skip">تخطّي</string>
+    <string name="onboarding_start_now">ابدأ الآن</string>
+
+    <!-- Onboarding Page 1 -->
+    <string name="onboarding_title_1">كل خدماتك اليومية \n في مكان واحد</string>
+    <string name="onboarding_desc_1">توصيل، تسوق من المحلات، وطلب الخدمات المهنية</string>
+
+    <!-- Onboarding Page 2 -->
+    <string name="onboarding_title_2">توصيل ذكي بأسعار تنافسية</string>
+    <string name="onboarding_desc_2">اختر سعراً ثابتاً لشحنتك أو استقبل عروض أسعار فورية من المناديب وقارن الأنسب لك</string>
+
+    <!-- Onboarding Page 3 -->
+    <string name="onboarding_title_3">تسوق محلي وخدمات مهنية موثوقة</string>
+    <string name="onboarding_desc_3">تصفح مئات المتاجر واطلب أفضل الفنيين والمهنيين المعتمدين بضمان وحماية متكاملة</string>
+
+
+    <!-- Register Screen Strings -->
+    <string name="register_title">انضم إلى مدار</string>
+    <string name="register_subtitle">أنشئ حسابك كزبون للوصول إلى كافة المتاجر والخدمات اليومية بكل يسر وسرعة</string>
+    <string name="register_subtitle_customer">أنشئ حسابك للوصول إلى كافة المتاجر والخدمات اليومية بكل يسر وسرعة</string>
+    <string name="register_subtitle_merchant">أنشئ حسابك كمتجر، وستراجع إدارة مدار طلبك وتوافق عليه قبل تفعيل المتجر</string>
+    <string name="register_subtitle_professional">أنشئ حسابك كمهني، وستراجع إدارة مدار طلبك وتوافق عليه قبل تفعيل الحساب</string>
+    <string name="register_subtitle_delivery">أنشئ حسابك كمندوب توصيل، وستراجع إدارة مدار طلبك وتوافق عليه قبل تفعيل الحساب</string>
+
+    <string name="label_full_name">الاسم الكامل *</string>
+    <string name="hint_full_name">الاسم الكامل</string>
+
+    <string name="label_phone">رقم الجوال</string>
+    <string name="hint_phone">059 XXX XXXX</string>
+    <string name="phone_country_note">يُضاف كود الدولة ‎+970 تلقائياً، واكتب الرقم مثل 0591234567</string>
+
+    <string name="label_email">البريد الإلكتروني</string>
+    <string name="hint_email">name@example.com</string>
+
+    <string name="label_password">كلمة المرور</string>
+    <string name="hint_password">كلمة المرور</string>
+    <string name="label_confirm_password">تأكيد كلمة المرور</string>
+    <string name="hint_confirm_password">أعِد كتابة كلمة المرور</string>
+    <string name="password_rules_note">8 أحرف على الأقل، وتحتوي حروفاً وأرقاماً</string>
+
+    <string name="btn_register"> إنشاء الحساب </string>
+    <string name="register_submitting">جارٍ إنشاء الحساب…</string>
+    <string name="text_already_have_account">لديك حساب بالفعل؟</string>
+    <string name="text_login_action">تسجيل الدخول</string>
+
+    <!-- Login Screen Strings -->
+    <string name="login_title">تسجيل الدخول</string>
+    <string name="btn_login">دخول</string>
+    <string name="login_submitting">جارٍ التحقق…</string>
+    <string name="login_forgot_password">نسيت كلمة المرور؟</string>
+    <string name="text_dont_have_account">لا تملك حساب ؟</string>
+    <string name="text_create_account_action">إنشاء حساب</string>
+
+    <string name="welcome_madar">أهلاً بك في مدار</string>
+    <string name="welcome_subtitle">منصتك الشاملة لكل الخدمات، التوصيل والمتاجر</string>
+    <string name="choose_account_type">اختر نوع حسابك للمتابعة</string>
+    <string name="step_one_of_three">الخطوة ١ من ٣</string>
+    <string name="choose_account_hint">سوف نخصص واجهة مدار لملائمة طبيعة استخدامك اليومية</string>
+
+    <!-- User Roles -->
+    <string name="role_customer">زبون</string>
+    <string name="role_customer_badge">الأكثر استخداماً</string>
+    <string name="role_customer_desc">اطلب وجبات، منتجات وخدمات بكل سهولة</string>
+
+    <string name="role_merchant">تاجر / متجر</string>
+    <string name="role_merchant_desc">إدارة متجرك، الطلبات والمخزون</string>
+
+    <string name="role_professional">مهني / فني</string>
+    <string name="role_professional_desc">تقديم خدمات الصيانة والاستشارات</string>
+
+    <string name="role_delivery">مندوب توصيل</string>
+    <string name="role_delivery_desc">توصيل الطلبات وتحقيق أرباح مرنة</string>
+
+    <string name="profile_switch_notice">يمكنك دائماً تبديل نوع الحساب لاحقاً من ملفك الشخصي</string>
+    <string name="btn_continue_customer">متابعة كزبون</string>
+    <string name="btn_continue_merchant">متابعة كتاجر / متجر</string>
+    <string name="btn_continue_professional">متابعة كمهني / فني</string>
+    <string name="btn_continue_delivery">متابعة كمندوب توصيل</string>
+
+    <!-- Common -->
+    <string name="back">رجوع</string>
+
+    <!-- Auth: validation and Firebase errors -->
+    <string name="error_name_short">الاسم يجب ألا يقل عن 3 أحرف</string>
+    <string name="error_phone_invalid">رقم الجوال غير صحيح، مثال: 0591234567</string>
+    <string name="error_email_invalid">البريد الإلكتروني غير صحيح، مثال: name@example.com</string>
+    <string name="error_email_in_use">هذا البريد مستخدم في حساب آخر، سجّل الدخول أو استعملي بريداً غيره</string>
+    <string name="error_password_weak">كلمة المرور ضعيفة: 8 أحرف على الأقل وتحتوي حروفاً وأرقاماً</string>
+    <string name="error_password_mismatch">كلمتا المرور غير متطابقتين</string>
+    <string name="error_password_empty">اكتب كلمة المرور</string>
+    <string name="error_login_failed">البريد أو كلمة المرور غير صحيحة</string>
+    <string name="error_account_not_found">لا يوجد حساب مسجّل بهذا البريد</string>
+    <string name="error_auth_too_many">فير بيز منعت طلبات جهازك مؤقتاً لتكرارها، انتظري ساعة تقريباً ثم أعيدي المحاولة</string>
+    <string name="error_auth_provider_disabled">الدخول بالبريد موقوف في إعدادات Firebase، فعّل Email/Password</string>
+    <string name="error_auth_network">تحقق من اتصالك بالإنترنت ثم أعِد المحاولة</string>
+    <string name="error_auth_unknown">حدث خطأ غير متوقع، حاول مرة أخرى</string>
+    <string name="error_save_failed">تم إنشاء حسابك لكن تعذّر حفظ بياناته، أعِد المحاولة</string>
+    <string name="error_load_failed">تعذّر تحميل بيانات حسابك، تحقق من الاتصال أعِد المحاولة</string>
+    <string name="error_profile_missing">بيانات حسابك غير مكتملة لدى مدار، تواصل مع الدعم</string>
+
+    <!-- Auth: result messages -->
+    <string name="msg_account_created_customer">تم إنشاء حسابك بنجاح</string>
+    <string name="msg_account_pending">تم إنشاء حسابك، طلبك قيد مراجعة إدارة مدار</string>
+    <string name="msg_welcome_back">أهلاً بعودتك إلى مدار</string>
+    <string name="msg_reset_sent">أرسلنا رابط تغيير كلمة المرور إلى بريدك، تفقّد صندوق الوارد</string>
+    <string name="msg_link_sent">أرسلنا رابط التأكيد إلى بريدك، تفقّد صندوق الوارد</string>
+    <string name="msg_email_still_unverified">لم يتم التأكيد بعد: افتح بريدك واضغط على الرابط أولاً</string>
+
+    <!-- Email verification gate -->
+    <string name="verify_email_title">أكّد بريدك الإلكتروني</string>
+    <string name="verify_email_message">أرسلنا رابط تأكيد إلى بريدك. افتح البريد واضغط على الرابط، ثم ارجع لتطبيق.</string>
+    <string name="verify_email_sent_to">أرسلنا الرابط إلى</string>
+    <string name="btn_i_verified">لقد أكّدت بريدي</string>
+    <string name="btn_resend_link">أرسل الرابط من جديد</string>
+    <string name="resend_in_seconds">أعِد الإرسال بعد %1$d ثانية</string>
+    <string name="verify_email_notice">لا يمكن دخول التطبيق قبل تأكيد البريد، لأنّه الوسيلة الوحيدة لاسترجاع كلمة المرور.</string>
+
+    <!-- Add product (merchant menu) -->
+    <!-- عملة مدار هي الشيكل: السوق هنا يبيع به، وهو ما يُكتب في خانة السعر -->
+    <string name="currency_symbol">₪</string>
+    <string name="add_product_photo_title">إضافة صورة الوجبة أو المنتج</string>
+    <string name="add_product_photo_hint">انقر لاختيار صورة شهية بجودة عالية (JPG, PNG)</string>
+    <string name="add_product_photo_change">تغيير صورة المنتج</string>
+    <string name="add_product_remove_photo">إزالة الصورة</string>
+    <string name="label_product_name">اسم المنتج *</string>
+    <string name="hint_product_name">مثال: برجر دجاج مقرمش كلاسيك</string>
+    <string name="label_product_category">التصنيف</string>
+    <string name="helper_one_category">اختر تصنيفاً واحداً</string>
+    <string name="label_product_price">السعر بالشيكل (₪) *</string>
+    <string name="hint_product_price">0.00</string>
+    <string name="label_prep_time">وقت التحضير المتوقع</string>
+    <string name="prep_time_unit">دقيقة</string>
+    <string name="label_product_description">وصف المنتج والمكونات</string>
+    <string name="helper_optional">اختياري</string>
+    <string name="hint_product_description">صدر دجاج مقرمش، خس طازج، مخلل، صوص كلاسيكي خاص مع خبز البريوش الطري…</string>
+    <string name="label_availability">جاهزية العرض</string>
+    <string name="desc_availability">المنتج متوفر ومتاح للطلب فوراً</string>
+    <string name="btn_save_product">حفظ ونشر المنتج</string>
+    <string name="btn_product_saving">جارٍ النشر…</string>
+    <string name="btn_cancel_product">إلغاء وتراجع</string>
+    <string name="error_product_name">اكتب اسم المنتج كما سيقرأه الزبون</string>
+    <string name="error_product_price">اكتب سعراً صحيحاً بالشيكل، أكبر من صفر</string>
+    <string name="msg_product_saved">تم نشر المنتج في منيو متجرك</string>
+    <string name="error_product_save_failed">تعذّر حفظ المنتج، تحقّق من الاتصال ثم أعِد المحاولة</string>
+    <!-- صورة المنتج تفشل لسببين مختلفين عن صور المحل: إعداد الرفع أو الشبكة، فتنبيهها يخصّها -->
+    <string name="error_product_photo_upload_failed">لم تُرفع صورة المنتج، وما تمّ نشره. تحقّق من إعداد الرفع أو من الاتصال ثم أعِد المحاولة</string>
+    <!-- نموذج التعديل هو نفسه نموذج الإضافة، فلا عنوان جديد له: النص الوحيد اللي بيتغيّر هو الزر -->
+    <string name="btn_update_product">حفظ التعديلات</string>
+    <string name="btn_product_updating">جارٍ الحفظ…</string>
+    <string name="msg_product_updated">تم تحديث المنتج</string>
+    <string name="error_product_update_failed">تعذّر حفظ التعديلات، تحقّق من الاتصال ثم أعِد المحاولة</string>
+
+    <!-- Merchant: menu list (the المنيو tab) -->
+    <string name="menu_title">المنتجات والمنيو</string>
+    <string name="menu_subtitle">إدارة قائمة الطعام وتوفر الأصناف لحظياً</string>
+    <string name="btn_add_product">إضافة منتج</string>
+    <string name="menu_filter_all">الكل (%1$d)</string>
+    <string name="menu_filter_count">%1$s (%2$d)</string>
+    <string name="product_available">متوفر</string>
+    <string name="product_unavailable">غير متوفر</string>
+    <string name="btn_edit_product">تعديل</string>
+    <string name="label_availability_switch">تحديث التوفر</string>
+    <string name="menu_empty">ما أضفت ولا منتج لحد الآن</string>
+    <!-- في التصفية بالتحديد: المنتجات موجودة بس ما فيها من هذا التصنيف شيء -->
+    <string name="menu_no_matches">ما في منتج في هذا التصنيف</string>
+    <string name="menu_load_failed">تعذّر تحميل منتجات متجرك، تحقّق من الاتصال وأعد المحاولة</string>
+    <string name="menu_availability_failed">تعذّر تحديث توفر المنتج، تحقّق من الاتصال</string>
+    <string name="menu_notifications">التنبيهات</string>
+    <string name="product_photo_description">صورة المنتج</string>
+
+    <!-- Merchant: create an offer (the العروض tab) -->
+    <string name="required_star">*</string>
+    <string name="offer_name_label">اسم العرض</string>
+    <string name="hint_offer_name">خصم نهاية الأسبوع</string>
+    <string name="offer_type_label">نوع الخصم</string>
+    <string name="offer_type_percent">نسبة مئوية %</string>
+    <string name="offer_type_fixed">مبلغ ثابت ₪ </string>
+    <string name="offer_value_label">قيمة الخصم</string>
+    <!-- علامة النسبة في خانة القيمة: وحدها تُبدل عند قلب نوع الخصم إلى مبلغ ثابت -->
+    <string name="percent_sign">%</string>
+    <string name="offer_products_label">المنتجات المشمولة</string>
+    <string name="offer_select_all">اختيار الكل</string>
+    <string name="offer_deselect_all">إلغاء الكل</string>
+    <string name="offer_category_hint">اختر تصنيفاً</string>
+    <string name="offer_category_all">كل المنتجات</string>
+    <string name="offer_start_label">تاريخ البداية</string>
+    <string name="offer_end_label">تاريخ النهاية</string>
+    <string name="offer_preview_label">معاينة بطاقة العرض للعميل</string>
+    <string name="offer_preview_note">متاح على قائمة مختارة</string>
+    <string name="offer_preview_discount">خصم %1$s</string>
+    <string name="offer_live">مباشر</string>
+    <!-- التاريخ لم يحن بعد: «مباشر» هنا كذب، والقارئ يظن أن الخصم يعمل الآن -->
+    <string name="offer_scheduled">لم يبدأ بعد</string>
+    <string name="offer_ended">انتهى</string>
+    <string name="btn_create_offer">إنشاء العرض</string>
+    <string name="offer_no_products">ما في منتجات في هذا التصنيف</string>
+    <string name="offer_store_empty">أضف منتجات للمنيو أولاً، فالعرض على طبق غير موجود لا يعني شيئاً</string>
+    <string name="error_offer_name">اكتب اسماً للعرض يعرفه الزبون من سطر واحد</string>
+    <string name="error_offer_value">اكتب قيمة خصم أكبر من صفر</string>
+    <string name="error_offer_value_high">نسبة الخصم لا تتجاوز ٩٠٪، والمبلغ الثابت لا يبلغ سعر الطبق</string>
+    <string name="error_offer_products">اختر منتجاً واحداً على الأقل يمشي عليه العرض</string>
+    <string name="error_offer_dates">تاريخ النهاية لا يسبق تاريخ البداية</string>
+    <string name="error_offer_save_failed">تعذّر إنشاء العرض، تحقّق من الاتصال وأعد المحاولة</string>
+    <string name="msg_offer_created">صار عرضك مباشرة على الأصناف المختارة</string>
+    <string name="offer_name_icon_description">اسم العرض</string>
+    <string name="offer_value_icon_description">قيمة الخصم</string>
+    <string name="offer_gift_icon_description">بطاقة العرض</string>
+
+    <!-- ============ تبويب الطلبات عند التاجر ============ -->
+    <string name="orders_filter_new">جديد (%1$d)</string>
+    <string name="orders_filter_preparing">قيد التحضير (%1$d)</string>
+    <string name="orders_other_active">طلبات أخرى جارية</string>
+    <string name="orders_archive_link">الأرشيف (%1$d)</string>
+    <string name="order_number">#%1$d</string>
+    <string name="order_badge_new">طلب جديد</string>
+    <string name="order_total_label">المجموع الإجمالي</string>
+    <string name="order_accept">قبول الطلب</string>
+    <string name="order_reject">رفض الطلب</string>
+    <string name="order_ready">جاهز</string>
+    <string name="order_line_quantity">%1$d×</string>
+    <string name="order_lines_count">%1$d صنف</string>
+    <string name="order_status_preparing">قيد التحضير</string>
+    <string name="order_status_ready">جاهز للاستلام</string>
+    <string name="order_status_completed">مكتمل</string>
+    <string name="order_status_rejected">مرفوض</string>
+    <string name="order_time_today">اليوم %1$s</string>
+    <string name="order_time_yesterday">أمس %1$s</string>
+    <string name="order_clock">%1$s %2$s</string>
+    <string name="order_am">ص</string>
+    <string name="order_pm">م</string>
+    <string name="order_ago_now">هلقي</string>
+    <string name="order_ago_minute">منذ دقيقة</string>
+    <string name="order_ago_minutes">منذ %1$d دقائق</string>
+    <string name="order_ago_hour">منذ ساعة</string>
+    <string name="order_ago_hours">منذ %1$d ساعات</string>
+    <string name="order_ago_days">منذ %1$d أيام</string>
+    <string name="orders_empty_new">ما في طلبات جديدة هلقي</string>
+    <string name="orders_empty_preparing">ما في طلبات قيد التحضير</string>
+    <string name="orders_empty_all">ما في طلبات على متجرك بعد</string>
+    <string name="orders_load_failed">تعذّر تحميل طلباتك، تحقّق من الاتصال وأعد المحاولة</string>
+    <string name="order_action_failed">ما قدرنا نحدّث الطلب، تحقّق من الاتصال وأعد المحاولة</string>
+    <string name="order_accepted_toast">صار الطلب قيد التحضير</string>
+    <string name="order_rejected_toast">انرفض الطلب وطلع من اللائحة</string>
+    <string name="order_call_customer">اتصل بالزبون</string>
+    <string name="order_no_phone">الطلب هذا ما فيه رقم تلفون</string>
+    <!-- سطر البطاقة المصغّرة: الوقت بالطريقة النسبية ثم طريقة الاستلام، ونقطة تفرقهما -->
+    <string name="order_sub_line">%1$s • %2$s</string>
+
+    <!-- ============ نافذة سبب الرفض (تطلع من تحت لمّا التاجر يرفض طلب) ============ -->
+    <string name="reject_title">تحديد سبب رفض الطلب</string>
+    <string name="reject_subtitle">يرجى تحديد سبب تعذر قبول الطلب لإشعار العميل فوراً وتفادي تقييم السلبي.</string>
+    <string name="reject_reason_stock">الصنف أو المكونات غير متوفرة حالياً</string>
+    <string name="reject_reason_stock_note">سيتم تعطيل توفر الصنف مؤقتاً تلقائياً</string>
+    <string name="reject_reason_busy">المطعم يشهد ضغطاً عالياً حالياً</string>
+    <string name="reject_reason_busy_note">وقت الانتظار المتوقع يتجاوز 45 دقيقة</string>
+    <string name="reject_reason_closed">خارج نطاق ساعات العمل أو تم الإغلاق</string>
+    <string name="reject_reason_closed_note">المطبخ لا يستقبل طلبات جديدة الآن</string>
+    <string name="reject_reason_other">سبب آخر (ملاحظة سريعة)</string>
+    <string name="reject_reason_other_note">كتابة توضيح مخصص للعميل</string>
+    <string name="reject_note_label">ملاحظة توضيحية للعميل</string>
+    <string name="reject_note_optional">اختياري</string>
+    <string name="reject_note_hint">مثال: نفدت كمية الخبز الطازج، سيتاح مجدداً خلال ساعتين…</string>
+    <string name="reject_refund_note">سيتم إرجاع المبلغ المدفوع مباشرة إلى المحفظة الرقمية %1$s.</string>
+    <string name="reject_customer_fallback">العميل</string>
+    <string name="reject_confirm">تأكيد الرفض وإشعار العميل</string>
+    <string name="reject_cancel">تراجع وإبقاء الطلب</string>
+    <string name="offer_calendar_icon_description">التاريخ</string>
+
+    <!-- الشاشات اللي لسا ما اتسلّمت: تبويب موجود في الشريط بس محتواه مؤجّل -->
+    <string name="placeholder_title">هذه الشاشة لم تُبنَ بعد</string>
+
+    <!-- Customer home (placeholder) -->
+    <string name="home_hello">مرحباً، %1$s</string>
+    <string name="home_subtitle">كل خدماتك اليومية في مكان واحد</string>
+    <string name="home_placeholder_notice">هذه واجهة مبدئية تعرض بيانات حسابك، إلى أن يُسلَّم التصميم النهائي لواجهة الزبون.</string>
+    <string name="home_account_section">بيانات حسابك</string>
+    <string name="home_account_status">حالة الحساب</string>
+    <string name="btn_logout">تسجيل الخروج</string>
+
+    <!-- Account status -->
+    <string name="status_approved">مفعّل</string>
+    <string name="status_pending">قيد المراجعة</string>
+    <string name="status_rejected">مرفوض</string>
+
+    <!-- Pending review screen -->
+    <string name="pending_title">طلبك قيد المراجعة</string>
+    <string name="pending_message">تم استلام طلب إنشاء حسابك، وستراجعه إدارة مدار وتفعّله قريباً.</string>
+    <string name="pending_role_label">نوع الحساب المطلوب</string>
+    <string name="pending_notice">سنخبرك فور الموافقة عليه. يمكنك الآن تسجيل الخروج أو إغلاق التطبيق والعودة لاحقاً.</string>
+    <string name="btn_back_to_login">تسجيل الخروج والعودة للدخول</string>
+
+    <!-- قرار المراجعة: الرفض عند إدارة مدار يعني حذف الحساب وبياناته لا تعليقاً عليها -->
+    <string name="rejected_title">لم يتم قبول طلبك</string>
+    <string name="rejected_message">راجعت إدارة مدار طلبك وقررت عدم قبوله، وتم حذف بيانات الحساب بالكامل. يمكنك إنشاء طلب جديد إذا أردت.</string>
+    <string name="msg_account_removed">لم يعد لحسابك وجود في مدار، فقد حُذفت بياناته بعد قرار المراجعة</string>
+
+    <!-- Merchant: registration form (account + store in one screen) -->
+    <string name="merchant_register_title">أنشئ حساب تاجر في مدار</string>
+    <string name="merchant_register_subtitle">املأ بياناتك وبيانات متجرك مرة واحدة، وسيصل طلبك إلى إدارة مدار للمراجعة.</string>
+
+    <string name="merchant_visual_section">الهوية البصرية للمتجر</string>
+    <string name="logo_hint">أضف شعار علامتك التجارية ليظهر في محركات البحث وقائمة المتاجر</string>
+    <string name="logo_description">شعار المتجر</string>
+    <string name="btn_remove_logo">إزالة الشعار</string>
+
+    <string name="merchant_basic_section">البيانات الأساسية</string>
+    <string name="label_store_name">اسم المكان / المتجر</string>
+    <string name="hint_store_name">مثال: مخبز وأطباق القدس</string>
+    <string name="label_category">نوع النشاط التجاري</string>
+    <string name="label_description">نبذة مختصرة عن المتجر</string>
+    <string name="hint_description">اكتب وصفاً موجزاً يوضح ما يميز خدماتك ومنتجاتك لزبائنك</string>
+
+    <string name="merchant_location_section">الموقع ونطاق التواجد</string>
+    <string name="label_address">عنوان المتجر</string>
+    <string name="hint_address">المدينة والشارع أو المعلم المعروف، مثال: غزة، شارع الجلاء</string>
+
+    <string name="merchant_hours_section">أوقات العمل واستقبال الطلبات</string>
+    <string name="label_opening_time">من الساعة</string>
+    <string name="label_closing_time">إلى الساعة</string>
+
+    <string name="merchant_gallery_section">معرض صور المتجر والمنتجات</string>
+    <string name="gallery_counter">%1$d / %2$d صور</string>
+    <string name="btn_add_photo">إضافة صورة</string>
+    <string name="store_photo_description">صورة من المحل</string>
+    <string name="btn_remove_photo">حذف الصورة</string>
+    <string name="gallery_note">الصور ذات الجودة العالية تزيد من نسبة البيع المحتملة بنسبة ٤٠٪</string>
+
+    <string name="merchant_payment_section">طرق الدفع المدعومة</string>
+    <string name="payment_jawwal">محفظة جوال بي (Jawwal Pay)</string>
+    <string name="payment_jawwal_desc">دفع رسمي فوري ومباشر</string>
+    <string name="payment_palpay">محفظة بال بي (PalPay)</string>
+    <string name="payment_palpay_desc">سداد عبر نقاط البيع المعتمدة</string>
+    <string name="payment_bop">بنك فلسطين (Bank of Palestine)</string>
+    <string name="payment_bop_desc">تحويل بنكي وتطبيق تواصل</string>
+
+    <string name="btn_merchant_save">حفظ ومتابعة</string>
+    <string name="merchant_submitting">جارٍ حفظ طلبك…</string>
+    <string name="merchant_terms">بالنقر على حفظ، أنت توافق على </string>
+    <string name="merchant_terms_"> شروط وسياسات التجار في تطبيق مدار</string>
+
+    <string name="error_store_name_short">اكتب اسم المتجر كما هو على اللافتة</string>
+    <string name="error_category_required">اختر نوع النشاط التجاري</string>
+    <string name="error_address_short">اكتب الشارع أو معلماً معروفاً يصل إليه المندوب</string>
+    <string name="error_photo_required">أضف صورة واحدة على الأقل من المحل، فهي دليل المراجعة</string>
+    <string name="error_payment_required">اختر طريقة دفع واحدة على الأقل</string>
+    <string name="error_photo_invalid">تعذّر قراءة إحدى الصور المختارة، اختار صورة أخرى</string>
+    <string name="error_photo_upload_failed">تعذّر رفع صور المحل، تحقق من الاتصال وأعِد الإرسال</string>
+    <string name="error_account_required">لم نتعرّف على حسابك، سجّل الخروج ثم أعِد الدخول</string>
+
+    <string name="msg_merchant_created">تم إنشاء حسابك، وأرسلنا رابط التأكيد إلى بريدك</string>
+
+    <!-- Merchant: home dashboard -->
+    <string name="home_status_open">المحل مفتوح ويستقبل الطلبات</string>
+    <string name="home_status_closed">المحل مغلق ولا يستقبل طلبات جديدة</string>
+    <string name="home_stat_sales">المبيعات</string>
+    <string name="home_stat_today">طلبات اليوم</string>
+    <string name="home_stat_pending">بانتظار التأكيد</string>
+    <string name="home_currency">@string/currency_symbol</string>
+    <string name="home_zero">0</string>
+    <string name="home_incoming_section">الطلبات الواردة</string>
+    <string name="home_no_incoming">لا يوجد طلبات جديدة الآن.عند وصول الطلب سيظهر هنا فوراً</string>
+    <string name="home_preparing_section">طلبات قيد التحضير</string>
+    <string name="home_no_preparing">لا يوجد طلبات قيد التحضير الآن</string>
+    <string name="home_show_all">عرض الكل</string>
+
+    <!-- Merchant home: bottom navigation -->
+    <string name="nav_home">الرئيسية</string>
+    <string name="nav_orders">الطلبات</string>
+    <string name="nav_menu">المنيو</string>
+    <string name="nav_offers">العروض</string>
+    <string name="nav_settings">الإعدادات</string>
+
+    <string name="msg_screen_coming_soon">الشاشة ستأتي بعد الانتهاء من مسار الطلبات</string>
+    <string name="error_status_update_failed">تعذّر تغيير حالة المحل، تحقق من الاتصال وأعِد المحاولة</string>
+
+    <!-- Merchant: settings tab -->
+    <string name="settings_status_open">المتجر متصل ويستقبل الطلبات الآن</string>
+    <string name="settings_status_closed">المتجر مغلق، ولا تصله طلبات جديدة الآن</string>
+    <string name="settings_store_section">بيانات المتجر</string>
+    <string name="settings_store_sub">معلومات الحساب التجاري</string>
+    <string name="settings_verified">متجر معتمد وموثّق من مدار</string>
+    <string name="settings_no_address">لم يُحفظ عنوان المتجر بعد</string>
+    <string name="settings_no_phone">لا رقم جوال مسجّل على هذا الحساب</string>
+    <string name="settings_edit_store">تعديل بيانات المتجر</string>
+    <string name="settings_support_section">الملف والدعم</string>
+    <string name="settings_row_sounds">أصوات وإشعارات الطلبات</string>
+    <string name="settings_row_sounds_sub">نغمة التنبيه عند وصول طلب جديد</string>
+    <string name="settings_state_active">نشط</string>
+    <string name="settings_state_stopped">متوقف</string>
+    <string name="settings_row_support">الدعم الفني والمساعدة</string>
+    <string name="settings_row_support_sub">تواصل واتساب</string>
+    <string name="settings_row_policies">سياسات الخدمة</string>
+    <string name="settings_version">إصدار التطبيق %1$s (مدار أعمال)</string>
+    <string name="settings_support_unavailable">لم نجد تطبيق واتساب على جهازك</string>
+
+    <!-- Merchant: edit store screen -->
+    <string name="edit_section_title">بيانات المتجر الأساسية</string>
+    <string name="edit_label_store_name">اسم المتجر الرسمي</string>
+    <string name="edit_label_phone">رقم الهاتف / الواتساب</string>
+    <string name="edit_label_address">العنوان وموقع الفرع</string>
+    <string name="edit_portal_approved">بوابة إدارة الشريك - معتمد</string>
+    <string name="edit_portal_pending">بوابة إدارة الشريك - قيد المراجعة</string>
+    <string name="edit_save">حفظ التعديلات</string>
+    <string name="edit_cancel">إلغاء والتراجع</string>
+    <string name="edit_saved">تم حفظ بيانات المتجر</string>
+    <string name="edit_name_short">اسم المتجر لازم يكون ثلاث حروف على الأقل</string>
+    <string name="edit_address_short">اكتب عنواناً واضحاً: المدينة والشارع أو معلماً معروفاً</string>
+    <string name="edit_load_failed">لم نقدر نقرأ بيانات المتجر، حاول مرة ثانية</string>
+    <string name="edit_logo_removed">الشعار لازم يفضل موجود، اختار صورة بدلها</string>
+
+    <!-- رقم دعم واتساب: محلياً يُكتب 0598327532، وهنا بصيغة دولية بلا + بلا رموز. يتغيّر لمّا يتغيّر الرقم -->
+    <string name="support_whatsapp_number">972598327532</string>
+    <string name="support_whatsapp_message">مرحباً، أحتاج مساعدة في تطبيق مدار.</string>
+
+    <!-- ورقة نغمة الطلبات -->
+    <string name="sound_switch_label">نغمة عند وصول طلب جديد</string>
+    <string name="sound_sheet_note">الاختيار يُحفظ على جهازك. النغمة تشتغل فور وصول الطلب لمّا تُفعَّل خدمة الدفع الإشعارات خارج التطبيق.</string>
+    <string name="sound_done">تم</string>
+
+    <!-- Merchant: service policies screen -->
+    <string name="policies_title">سياسات الخدمة</string>
+    <string name="policies_intro">تنظّم هذه الشروط العلاقة بين تطبيق مدار وأصحاب المتاجر المسجّلة فيه. باستخدامك التطبيق فأنت توافق عليها كما هي معروضة في هذه النسخة.</string>
+
+    <string name="policies_privacy_title">الخصوصية والبيانات</string>
+    <string name="policies_privacy_body">لا يجمع مدار من المتجر سوى ما يلزم تشغيل الخدمة: اسم النشاط وتصنيفه وعنوانه وصوره وأوقات عمله وطرق دفعه، واسم صاحب الحساب وبريده ورقم جواله. تُستخدم هذه البيانات لعرض المتجر أمام الزبائن وللتواصل مع صاحبه، ولا تُباع ولا تُشارك مع جهة إعلان.</string>
+
+    <string name="policies_account_title">الحساب والمسؤولية</string>
+    <string name="policies_account_body">صاحب الحساب هو المسؤول عن صحة بيانات متجره وأسعاره وما يعرضه من أصناف، وعن كل تعديل يجريه من داخل التطبيق. والمتجر الواحد مرتبط بحساب واحد: مفتاح وثيقة المتجر هو معرّف صاحبه، فلا يُقبل متجران للحساب نفسه.</string>
+
+    <string name="policies_orders_title">الطلبات والدفع</string>
+    <string name="policies_orders_body">الطلب التزام بين الزبون والمتجر: يصل الطلب إلى المتجر وهو الذي يقبله أو يرفضه، والأسعار المعروضة هي أسعار المتجر بالشيكل الجديد. ويتم الدفع عند الاستلام أو على باب المتجر بالطرق التي يفعّلها المتجر نفسه، ولا يحتفظ مدار بأموال ولا يتوسّط في تحويلها في هذه النسخة.</string>
+
+    <string name="policies_returns_title">الاسترجاع والاستبدال</string>
+    <string name="policies_returns_body">يخضع الاسترجاع والاستبدال لسياسة المتجر نفسه، فهي المعروضة على صفحته. وإذا وصل الصنف مخالفاً لصورته أو وصفه، فيتواصل الزبون مع المتجر أولاً، وإن لم تُحلّ المشكلة يُصعَّد الأمر إلى الدعم الفني ليُراجَع.</string>
+
+    <string name="policies_content_title">الصور والمحتوى</string>
+    <string name="policies_content_body">يبقى ملك الصور والشعار التي يرفعها التاجر له. ومنحها للتطبيق يعني حق عرضها داخل متجره وفي صفحات التصنيف لدى الزبائن، وحذف الصورة من المنيو يحذفها من العرض ومن حساب التخزين.</string>
+
+    <string name="policies_suspend_title">المراجعة والإيقاف والحذف</string>
+    <string name="policies_suspend_body">تراجع إدارة مدار المتاجر الجديدة قبل اعتمادها، ولها أن ترفض أو تحذف أي متجر يخالف الشروط أو يرفع محتوى مضلّلاً، وتحذف معه بياناته من التطبيق. قرار الحذف نهائي، ولا يرجع إلا بتسجيل جديد من الصفر.</string>
+
+    <string name="policies_change_title">تعديل السياسات</string>
+    <string name="policies_change_body">قد تتعدل هذه الشروط مع كل نسخة تُضاف إليها ميزة، والنص المعروض هنا هو نسخة التطبيق المثبّت على جهازك. أي تغيير جوهري يُعرض على هذه الصفحة قبل أن يُطبَّق.</string>
+
+    <string name="policies_draft_note">هذه الصياغة مبدئية للمراجعة، وتُستبدل بالنسخة المعتمدة قبل الإطلاق.</string>
+
+    <!-- Merchant: notifications screen -->
+    <string name="notif_ago_day">منذ يوم</string>
+    <string name="notif_title">الاشعارات</string>
+    <string name="notif_filter_all">الكل (%1$d)</string>
+    <string name="notif_filter_orders">الطلبات (%1$d)</string>
+    <string name="notif_filter_store">المتجر والنظام (%1$d)</string>
+    <string name="notif_last_alerts">التنبيهات الأخيرة</string>
+    <string name="notif_mark_all_read">تحديد الكل كمقروء</string>
+    <string name="notif_clear_previous">مسح الإشعارات السابقة</string>
+    <string name="notif_empty_title">لا تنبيهات جديدة</string>
+    <string name="notif_empty_hint">يصلك هنا طلب جديد، ووصول المندوب، وانتهاء عرض، وقرار إدارة مدار.</string>
+    <string name="notif_action_open_order">عرض الطلب الآن</string>
+    <string name="notif_action_open_offers">فتح قسم العروض</string>
+    <string name="notif_unknown_customer">الزبون</string>
+    <string name="notif_unnamed_offer">عرضك</string>
+    <string name="notif_new_order_title">طلب جديد عاجل #%1$d</string>
+    <string name="notif_new_order_title_plain">طلب جديد عاجل</string>
+    <string name="notif_new_order_body">ورد طلب جديد من العميل %1$s بقيمة %2$s بانتظار التأكيد.</string>
+    <string name="notif_courier_arrived_title">المندوب وصل للمتجر</string>
+    <string name="notif_courier_arrived_body">المندوب %1$s متواجد الآن لاستلام الطلب #%2$d.</string>
+    <string name="notif_order_completed_title">تم اكتمال الطلب #%1$d بنجاح</string>
+    <string name="notif_order_completed_body">تم تسليم الطلب للزبون وإيداع المبلغ في رصيدك اليومي.</string>
+    <string name="notif_offer_ending_title">تذكير: انتهاء العرض الترويجي</string>
+    <string name="notif_offer_ending_body">سينتهي عرض «%1$s» بنهاية اليوم. يمكنك تحديثه من قسم العروض.</string>
+    <string name="notif_store_approved_title">تم اعتماد متجرك</string>
+    <string name="notif_store_approved_body">صار متجرك ظاهراً للزبائن، وتقدر تضيف أصنافك وتستقبل الطلبات من الآن.</string>
+
+    <!-- ==================== الزبون: الرئيسية وتصفّح المتاجر ==================== -->
+    <!-- المنطقة في رأس الرئيسية: حفظ جهاز لا قاعدة بيانات، وافتراضيها ما في رسمة Figma -->
+    <string name="cust_welcome">أهلًا بك 👋</string>
+    <string name="cust_location_default">غزة - الرمال</string>
+    <string name="cust_location_change">تغيير</string>
+    <string name="cust_location_sheet_title">اختر منطقتك</string>
+    <string name="cust_search_hint">ابحث عن مطعم، متجر، أو خدمة…</string>
+    <string name="cust_filter_hint">تصفية حسب التصنيف</string>
+
+    <!-- أقسام الزبون الأربعة في الرئيسية -->
+    <string name="cust_sec_restaurants">المطاعم</string>
+    <string name="cust_sec_restaurants_sub">وجبات سريعة ومقاهي</string>
+    <string name="cust_sec_markets">المحلات</string>
+    <string name="cust_sec_markets_sub">تموينات ومتاجر تجزئة</string>
+    <string name="cust_sec_delivery">التوصيل الخاص</string>
+    <string name="cust_sec_delivery_sub">إرسال واستلام أي طرد</string>
+    <string name="cust_sec_services">الخدمات المهنية</string>
+    <string name="cust_sec_services_sub">صيانة وخدمات منزلية</string>
+
+    <!--
+        شريط العرض في الرئيسية: ترويج من المنصة لا من تاجر، فلا حقل له في قاعدة البيانات بعد.
+        TODO يبقى نصاً ثابتاً حتى تُبنى لوحة تحكم المنصة وتضيف مجموعة promotions.
+    -->
+    <string name="cust_promo_today">عرض اليوم</string>
+    <string name="cust_promo_title">توصيل مجاني للطلب الأول</string>
+    <string name="cust_promo_code_label">رمز:</string>
+    <string name="cust_promo_code">MADAR</string>
+
+    <!-- بطاقة الطلب الذي لم يصل بعد، ولا تظهر إلا إذا كان للزبون طلب نشط -->
+    <string name="cust_track_title_new">طلبك بانتظار المتجر</string>
+    <string name="cust_track_title_preparing">طلبك قيد التحضير</string>
+    <string name="cust_track_title_ready">طلبك قيد التوصيل</string>
+    <string name="cust_track_store">%1$s • رقم #%2$d</string>
+    <string name="cust_track_order_only">طلب رقم #%1$d</string>
+    <string name="cust_track_total">المجموع %1$s</string>
+    <string name="cust_track_action">تتبع</string>
+    <!-- TODO لا شاشة تتبع بعد: الزر ينقل لتبويب «طلباتي» وهو صفحة ما تحت التصميم -->
+
+    <!-- التبويبات الثلاثة التي لم يُسلَّم تصميمها -->
+    <string name="nav_my_orders">طلباتي</string>
+    <string name="nav_addresses">العناوين</string>
+    <string name="nav_account">حسابي</string>
+    <string name="cust_soon_body">هذه الشاشة بانتظار رسمتها من Figma، وستُبنى هنا بنفس طريقة بقية الشاشات.</string>
+
+    <!-- قائمة متاجر القسم التي تفتح من بطاقة القسم -->
+    <string name="cust_chip_all">الكل</string>
+    <string name="cust_all_stores">كل المتاجر</string>
+    <string name="cust_card_offer">عرض</string>
+    <string name="cust_card_eta">%1$s دقيقة</string>
+    <string name="cust_store_photo">صورة المتجر</string>
+    <string name="cust_store_closed">مغلق الآن</string>
+    <string name="cust_section_empty_title">لا متاجر هنا بعد</string>
+    <string name="cust_section_empty_hint">أضف متجراً من مسار التاجر واعتمده، وسيظهر في هذه القائمة فوراً.</string>
+    <string name="cust_search_empty_title">لا نتائج لهذا البحث</string>
+    <string name="cust_search_empty_hint">جرّب كلمة أخرى، أو أعد التصفية من شريط التصنيف.</string>
+    <!-- التقييم ورسوم التوصيل لا حقل لهما في قاعدة البيانات: شارة التقييم مخفية ومكانها يبقى فارغاً حتى تُبنى التقييمات ومسار الديليفري -->
+
+    <!-- ============ الزبون: منيو المتجر ============ -->
+    <string name="cust_menu_title">المنيو</string>
+    <string name="cust_menu_back">رجوع إلى قائمة المتاجر</string>
+    <string name="cust_menu_product_photo">صورة الصنف</string>
+    <!-- عدّاد الكمية: الوصفان للقارئ الشاشي، والعدّاد نفسه لا كتابة فيه -->
+    <string name="cust_stepper_minus">إنقاص عدد هذا الصنف</string>
+    <string name="cust_stepper_plus">زيادة عدد هذا الصنف</string>
+
+    <!-- حالة الفتح ثلاث كلمات لا واحدة: ساعة المتجر، وقرار التاجر، والاثنان معاً -->
+    <string name="cust_menu_open_now">مفتوح الآن</string>
+    <string name="cust_menu_closed_now">مغلق الآن</string>
+    <string name="cust_menu_paused">لا يستقبل الطلبات</string>
+
+    <!-- بلاطات المعلومات: ثلاث قيم محفوظة فعلاً، واثنتان مبنيتان ومخفيتان حتى يوجد مصدرهما -->
+    <string name="cust_menu_prep_label">مدة التحضير</string>
+    <string name="cust_menu_address_label">عنوان المتجر</string>
+    <string name="cust_menu_hours_label">مفتوح حتى</string>
+    <string name="cust_menu_rating_label">تقييم الزبائن</string>
+    <string name="cust_menu_delivery_label">رسوم التوصيل</string>
+    <!-- نطاق التحضير يُعرض مختصراً كما في الرسمة: «25-35 د» لا «25-35 دقيقة» -->
+    <string name="cust_menu_minutes">%1$s د</string>
+
+    <!-- شريط السلة: عدد الوحدات لا عدد الأصناف، والمجموع بالشيكل كما يُحفظ السعر -->
+    <string name="cust_menu_items">%1$d صنف في السلة</string>
+    <string name="cust_menu_total">المجموع %1$s</string>
+    <string name="cust_menu_cart_action">عرض السلة والدفع</string>
+    <!-- TODO شاشة السلة والدفع لم تُسلَّم رسمتها بعد: الشريط يعمل والزر لا يفتح شيئاً حتى تُبنى -->
+
+    <!-- ============ الزبون: نافذة تفاصيل الوجبة ============ -->
+    <string name="cust_sheet_title">تفاصيل الوجبة</string>
+    <string name="cust_sheet_close">إغلاق تفاصيل الوجبة</string>
+    <string name="cust_sheet_notes_label">ملاحظات للتاجر</string>
+    <string name="cust_sheet_notes_hint">مثال: بدون مخلل، ثوم زيادة</string>
+
+    <!-- كلمتا المجموعتين: لا إجبار عندنا، فالذي يترك نوع الخبز بلا اختيار يتركه
+         لأنه لا يريد وجهاً بعينه، لا لأنه ناسي سؤالاً مفروضاً عليه -->
+    <string name="cust_sheet_pick_one">اختار 1</string>
+    <string name="cust_sheet_optional">اختياري</string>
+
+    <!-- الزر يقول السعر الذي صار عليه السطر، لأنه لا زر «أضف إلى السلة» في النافذة: ما
+         لمسه الزبون فيها مكتوب فعلاً قبل الضغط عليه، فهو «تم» لا أمر إضافة -->
+    <string name="cust_sheet_done_total">تم • %1$s</string>
+    <string name="cust_sheet_option_price">+%1$s</string>
+
+    <string name="cust_menu_empty_title">لا أصناف في المنيو بعد</string>
+    <string name="cust_menu_empty_hint">التاجر لم ينشر أطباقه، أو أن كل أصنافه غير متوفرة الآن.</string>
+    <!-- المتجر حُذف أو أُلغي اعتماده وهو في يد الزبون: تُقال كلمته وتُغلق صفحته بلا شاشة فاضية -->
+    <string name="cust_menu_store_gone">هذا المتجر لم يعد متاحاً للزبائن</string>
 </resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  حبّة بيضاء كاملة الاستدارة: شارة حالة المتجر فوق الغلاف. مربّع الأفعال الصغير
+  لا يصلح لها، لأن نصف قطر الزاوية عنده ثابت على طول الضلع — وهو فوق شريط قصير
+  يصير دائرة، وفوق حبّة نصّها يصير مستطيلاً مقعّر الأطراف.
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/white" />
+    <corners android:radius="100dp" />
+</shape>

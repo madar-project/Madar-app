@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  عدّاد الكمية: حبّة واحدة فيها الناقص والعدد والزائد، وهي نفسها في بطاقة الصنف
+  وفي نافذة تفاصيل الوجبة — مكانان يعدّان السطر الواحد، فالشكل واحد.
+
+  الترتيب مقصود: الناقص أولاً فهو على اليمين كما في الرسمة، والزائد آخراً فهو على
+  اليسار ووحده الملوّن بالبرتقالي لأن الضغط عليه هو الفعل.
+
+  الصفر حالة خاصة في الكود لا في الرسم: عند صفر يُخفى الناقص والعدد وتبقى حبّة
+  الزائد وحدها، فالبطاقة التي لم تُلمَس بعد لا تصرخ بكمية لا تعني شيئاً.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="44dp"
+    android:background="@drawable/bg_stepper_bar"
+    android:gravity="center_vertical"
+    android:layoutDirection="rtl"
+    android:orientation="horizontal"
+    android:padding="3dp">
+
+    <ImageView
+        android:id="@+id/btn_minus"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:background="@drawable/bg_stepper_minus"
+        android:clickable="true"
+        android:contentDescription="@string/cust_stepper_minus"
+        android:focusable="true"
+        android:padding="8dp"
+        android:src="@drawable/ic_minus"
+        app:tint="@color/white" />
+
+    <TextView
+        android:id="@+id/tv_qty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="2dp"
+        android:fontFamily="@font/almarai_bold"
+        android:gravity="center"
+        android:minWidth="24dp"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        tools:text="2" />
+
+    <ImageView
+        android:id="@+id/btn_plus"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:background="@drawable/bg_action_square"
+        android:backgroundTint="@color/primary_orange"
+        android:clickable="true"
+        android:contentDescription="@string/cust_stepper_plus"
+        android:focusable="true"
+        android:padding="8dp"
+        android:src="@drawable/ic_add"
+        app:tint="@color/white" />
+</LinearLayout>

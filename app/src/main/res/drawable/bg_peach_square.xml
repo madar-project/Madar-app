@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- مربّع هدية المعاينة: خوخى فاتح مثل شريحة المنتج المختارة، لا لافندر كبقية الحقول -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/offer_chip_peach" />
+    <corners android:radius="12dp" />
+</shape>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/white"
+    android:layoutDirection="rtl"
+    tools:context=".ui.auth.email.EmailVerificationActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:paddingTop="60dp"
+        android:paddingBottom="24dp">
+
+        <ImageView
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:contentDescription="@string/verify_email_title"
+            android:src="@drawable/ic_email"
+            app:tint="@color/primary_orange" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/almarai_bold"
+            android:text="@string/verify_email_title"
+            android:textColor="@color/text_dark"
+            android:textSize="24sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/almarai_regular"
+            android:gravity="center"
+            android:lineSpacingExtra="4dp"
+            android:text="@string/verify_email_message"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp" />
+
+        <!-- البريد المُرسَل إليه -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/almarai_regular"
+            android:text="@string/verify_email_sent_to"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_verify_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/bg_input_field"
+            android:fontFamily="@font/almarai_bold"
+            android:gravity="center"
+            android:padding="14dp"
+            android:textColor="@color/text_dark"
+            android:textSize="15sp"
+            tools:text="sara@example.com" />
+
+        <!-- زر التأكيد بعد الضغط على الرابط -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_i_verified"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginTop="28dp"
+            android:fontFamily="@font/almarai_bold"
+            android:text="@string/btn_i_verified"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:backgroundTint="@color/primary_orange"
+            app:cornerRadius="12dp" />
+
+        <!-- إعادة إرسال الرابط -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_resend_link"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/almarai_bold"
+            android:text="@string/btn_resend_link"
+            android:textColor="@color/secondary_navy"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_notice_box"
+            android:fontFamily="@font/almarai_regular"
+            android:lineSpacingExtra="4dp"
+            android:padding="14dp"
+            android:text="@string/verify_email_notice"
+            android:textColor="@color/secondary_navy"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/btn_verify_sign_out"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:padding="8dp"
+            android:text="@string/btn_logout"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp"
+            android:fontFamily="@font/almarai_bold" />
+    </LinearLayout>
+</ScrollView>

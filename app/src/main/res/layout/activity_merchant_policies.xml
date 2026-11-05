@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    شاشة سياسات الخدمة. نصّها كله في ملف النصوص لا هنا، لأن صياغة الشروط تتعدّل
+    أكثر مما يتعدّل التصميم، ولأن كل عنوان وسطر يقرأهما المحامي أو صاحبة المشروع
+    من ملف واحد.
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fillViewport="true"
+    android:layoutDirection="rtl"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="20dp"
+        android:paddingTop="16dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="32dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/btn_back"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/back"
+                android:src="@drawable/ic_arrow_back"
+                app:tint="@color/text_dark" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/almarai_extra_bold"
+                android:text="@string/policies_title"
+                android:textColor="@color/text_dark"
+                android:textSize="22sp" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/almarai_regular"
+            android:lineSpacingExtra="5dp"
+            android:text="@string/policies_intro"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp" />
+
+        <TextView
+            style="@style/Widget.Madar.PolicyTitle"
+            android:text="@string/policies_privacy_title" />
+
+        <TextView
+            style="@style/Widget.Madar.PolicyBody"
+            android:text="@string/policies_privacy_body" />
+
+        <TextView
+            style="@style/Widget.Madar.PolicyTitle"
+            android:text="@string/policies_account_title" />
+
+        <TextView
+            style="@style/Widget.Madar.PolicyBody"
+            android:text="@string/policies_account_body" />
+
+        <TextView
+            style="@style/Widget.Madar.PolicyTitle"
+            android:text="@string/policies_orders_title" />
+
+        <TextView
+            style="@style/Widget.Madar.PolicyBody"
+            android:text="@string/policies_orders_body" />
+
+        <TextView
+            style="@style/Widget.Madar.PolicyTitle"
+            android:text="@string/policies_returns_title" />
+
+        <TextView
+            style="@style/Widget.Madar.PolicyBody"
+            android:text="@string/policies_returns_body" />
+
+        <TextView
+            style="@style/Widget.Madar.PolicyTitle"
+            android:text="@string/policies_content_title" />
+
+        <TextView
+            style="@style/Widget.Madar.PolicyBody"
+            android:text="@string/policies_content_body" />
+
+        <TextView
+            style="@style/Widget.Madar.PolicyTitle"
+            android:text="@string/policies_suspend_title" />
+
+        <TextView
+            style="@style/Widget.Madar.PolicyBody"
+            android:text="@string/policies_suspend_body" />
+
+        <TextView
+            style="@style/Widget.Madar.PolicyTitle"
+            android:text="@string/policies_change_title" />
+
+        <TextView
+            style="@style/Widget.Madar.PolicyBody"
+            android:text="@string/policies_change_body" />
+
+        <!-- الصياغة مبدئية إلى أن تُراجع: تُقال للتاجر لا تُخفى عنه -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/bg_info_banner"
+            android:fontFamily="@font/almarai_regular"
+            android:lineSpacingExtra="4dp"
+            android:padding="14dp"
+            android:text="@string/policies_draft_note"
+            android:textColor="@color/secondary_navy"
+            android:textSize="13sp" />
+    </LinearLayout>
+</ScrollView>

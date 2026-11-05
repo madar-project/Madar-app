@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    بطاقة نطاق وقت التحضير: المختارة برتقالية مليانة، والباقي لافندر.
+    الاختيار يُضبط في الكود بـ setSelected على البطاقة، وهي تمرّره لأبنائها فتتغيّر ألوان النص.
+-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_selected="true">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/primary_orange" />
+            <corners android:radius="14dp" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/section_light" />
+            <corners android:radius="14dp" />
+        </shape>
+    </item>
+</selector>

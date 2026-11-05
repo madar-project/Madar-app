@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  دائرة شفافة فوق اللون الكحلي لشريط العرض: لا لون لها في باليتة المتجر، لأنها تُوضع
+  فوق خلفية ملوّنة لا فوق خلفية بيضاء، فلا تُرى إلا بشفافية.
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <solid android:color="#1FFFFFFF" />
+</shape>

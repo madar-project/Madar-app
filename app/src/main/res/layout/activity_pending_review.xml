@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/white"
+    android:layoutDirection="rtl"
+    tools:context=".ui.auth.pending.PendingReviewActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:paddingTop="60dp"
+        android:paddingBottom="24dp">
+
+        <ImageView
+            android:id="@+id/iv_pending_icon"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:contentDescription="@string/pending_title"
+            android:src="@drawable/ic_shield_check"
+            app:tint="@color/primary_orange" />
+
+        <TextView
+            android:id="@+id/tv_pending_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/almarai_bold"
+            android:text="@string/pending_title"
+            android:textColor="@color/text_dark"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/tv_pending_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/almarai_regular"
+            android:gravity="center"
+            android:lineSpacingExtra="4dp"
+            android:text="@string/pending_message"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp" />
+
+        <!-- ملخص الطلب -->
+        <LinearLayout
+            android:id="@+id/card_pending_summary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:background="@drawable/bg_input_field"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/almarai_regular"
+                android:text="@string/label_full_name"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_pending_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:fontFamily="@font/almarai_bold"
+                android:textColor="@color/text_dark"
+                android:textSize="14sp"
+                tools:text="سارة أحمد" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:fontFamily="@font/almarai_regular"
+                android:text="@string/pending_role_label"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_pending_role"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:fontFamily="@font/almarai_bold"
+                android:textColor="@color/text_dark"
+                android:textSize="14sp"
+                tools:text="مندوب توصيل" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:fontFamily="@font/almarai_regular"
+                android:text="@string/label_email"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_pending_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:fontFamily="@font/almarai_bold"
+                android:layoutDirection="ltr"
+                android:textDirection="ltr"
+                android:textColor="@color/text_dark"
+                android:textSize="14sp"
+                tools:text="sara@example.com" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_pending_notice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_notice_box"
+            android:fontFamily="@font/almarai_regular"
+            android:lineSpacingExtra="4dp"
+            android:padding="14dp"
+            android:text="@string/pending_notice"
+            android:textColor="@color/secondary_navy"
+            android:textSize="13sp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_pending_back"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginTop="28dp"
+            android:fontFamily="@font/almarai_bold"
+            android:text="@string/btn_back_to_login"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:backgroundTint="@color/primary_orange"
+            app:cornerRadius="12dp" />
+    </LinearLayout>
+</ScrollView>

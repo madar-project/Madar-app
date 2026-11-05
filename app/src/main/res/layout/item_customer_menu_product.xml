@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  بطاقة صنف في منيو المتجر: صورة على اليمين، ثم الاسم والوصف، وعلى اليسار السعر فوق
+  وعدّاد الكمية تحت — وهو ترتيب الرسمة حرفياً، وقد تحقّقناه من مواضع العناصر فيها.
+
+  البطاقة كلها تفتح نافذة التفاصيل، وعدّادها يعدّ الصنف كما هو بلا اختيارات: ضغطة
+  واحدة تضيف وحدة، والثانية تزيد عليها، والناقص ينقص حتى صفر فيختفي الصنف. أما
+  الوجه الذي فيه خبز ومضافات وملاحظة فما يُكتب إلا من النافذة التي تعرضه للزبون.
+
+  كل حقل هنا من وثيقة products نفسها: name وdescription وprice وphotoUrl. ولا رقم
+  تقييم ولا وزن: لا حقل لأي منهما في العقد، فلا مكان على البطاقة لهما.
+
+  الإطار البرتقالي الذي يميّز البطاقة في الرسمة هو «هذا الصنف في سلتك» بأي وجهٍ كان،
+  يضبطه الكود بـ strokeColor على البطاقة، فلا عنصر جديد يُضاف إلى الرسم ولا لون يُخترع.
+-->
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_product"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="18dp"
+    app:cardElevation="0dp"
+    app:strokeColor="@color/field_stroke"
+    app:strokeWidth="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="12dp">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="84dp"
+            android:layout_height="84dp"
+            app:cardCornerRadius="14dp"
+            app:cardElevation="0dp">
+
+            <ImageView
+                android:id="@+id/iv_product_photo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/section_light"
+                android:contentDescription="@string/cust_menu_product_photo"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_restaurant"
+                app:tint="@color/secondary_navy" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="@font/almarai_extra_bold"
+                android:maxLines="1"
+                android:textColor="@color/text_dark"
+                android:textSize="16sp"
+                tools:text="شاوارما دجاج سوبر" />
+
+            <TextView
+                android:id="@+id/tv_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/almarai_regular"
+                android:lineSpacingExtra="2dp"
+                android:maxLines="2"
+                android:textColor="@color/text_secondary"
+                android:textSize="13sp"
+                tools:text="صدر دجاج، ثوم، بطاطا مقلية، مخلل، خبز صاج" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="84dp"
+            android:layout_marginStart="8dp"
+            android:gravity="end"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/almarai_bold"
+                android:textColor="@color/text_dark"
+                android:textSize="16sp"
+                tools:text="20 ₪" />
+
+            <!-- الفراغ بين السعر والعدّاد هو ما ينزّل العدّاد إلى أسفل البطاقة كما في الرسمة -->
+            <View
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <include
+                android:id="@+id/stepper"
+                layout="@layout/view_qty_stepper" />
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

@@ -1,9 +1,156 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.Madar" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <!--
+        الثيم الأساسي للتطبيق.
+        كل التصاميم الحالية بخلفية بيضاء ونصوص داكنة، لذلك ثبتّنا الثيم على Light
+        بدل DayNight حتى لا تظهر واجهة داكنة مكسورة عند من يفعّل الوضع الليلي في جهازه.
+    -->
+    <style name="Base.Theme.Madar" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/primary_orange</item>
+        <item name="colorSecondary">@color/secondary_navy</item>
+        <item name="android:colorBackground">@color/white</item>
+
+        <!-- ألوان شريط الحالة والشريط التنقلي (تُضبط هنا لأنWindow.setBarColor لم تعد تعمل على Android 15) -->
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:navigationBarColor">@color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="27">true</item>
+
+        <!-- شاشة بداية النظام في Android 12 وأعلى: تستخدم أيقونة التطبيق افتراضياً،
+             فثبّتناها على لوجو مدار فوق خلفية بيضاء حتى لا تظهر أيقونة أندرويد الخضراء -->
+        <item name="android:windowSplashScreenBackground" tools:targetApi="31">@color/white</item>
+        <item name="android:windowSplashScreenAnimatedIcon" tools:targetApi="31">@drawable/ic_launcher_foreground</item>
     </style>
 
     <style name="Theme.Madar" parent="Base.Theme.Madar" />
+
+    <!--
+        أسطر تبويب الإعدادات. ثلاثة أسطر متطابقة في الطول والخطوات، فقياساتها
+        في نمط واحد تُطبَّق على الأسطر الثلاثة: يتغيّر سطر منها فتتغيّر بقية معه.
+    -->
+    <style name="Widget.Madar.SettingsRow" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:minHeight">72dp</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+    <style name="Widget.Madar.SettingsRowIcon" parent="">
+        <item name="android:layout_width">48dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:background">@drawable/bg_icon_tile</item>
+    </style>
+
+    <style name="Widget.Madar.SettingsRowIconImage" parent="">
+        <item name="android:layout_width">22dp</item>
+        <item name="android:layout_height">22dp</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <style name="Widget.Madar.SettingsRowText" parent="">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_marginStart">12dp</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="Widget.Madar.SettingsRowTitle" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/almarai_bold</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textColor">@color/text_dark</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="Widget.Madar.SettingsRowSub" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">2dp</item>
+        <item name="android:fontFamily">@font/almarai_regular</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <!-- كلمة «نشط / متوقف»: أخضر عند التشغيل، ورمادي باهت عند الإيقاف -->
+    <style name="Widget.Madar.SettingsRowState" parent="">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/almarai_bold</item>
+        <item name="android:textColor">@color/success_green</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="Widget.Madar.SettingsRowChevron" parent="">
+        <item name="android:layout_width">20dp</item>
+        <item name="android:layout_height">20dp</item>
+        <item name="android:layout_marginStart">6dp</item>
+        <item name="android:tint">@color/dot_inactive</item>
+    </style>
+
+    <style name="Widget.Madar.SettingsRowDivider" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_marginStart">10dp</item>
+        <item name="android:layout_marginEnd">10dp</item>
+        <item name="android:background">@color/field_stroke</item>
+    </style>
+
+    <!--
+        أزرار الإعدادات: بلا ظل وبلا حروف كبيرة، لأن الزر العربي لا يُكتب بالأحرف
+        الكبيرة. والحشو العلوي والسفلي الافتراضي في زر ماتيريال صفر هنا، حتى يبقى
+        الارتفاع الذي في التصميم لا أقلّ منه باثنتي عشرة نقطة.
+    -->
+    <style name="Widget.Madar.SettingsButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:backgroundTint">@color/section_light</item>
+        <item name="android:fontFamily">@font/almarai_bold</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/primary_orange</item>
+        <item name="android:textSize">16sp</item>
+        <item name="cornerRadius">16dp</item>
+        <item name="elevation">0dp</item>
+        <item name="iconGravity">textStart</item>
+        <item name="iconPadding">8dp</item>
+        <item name="iconTint">@color/primary_orange</item>
+    </style>
+
+    <style name="Widget.Madar.LogoutButton" parent="Widget.Madar.SettingsButton">
+        <item name="android:backgroundTint">@color/badge_danger_light</item>
+        <item name="android:textColor">@color/danger_red</item>
+        <item name="android:textSize">17sp</item>
+        <item name="iconTint">@color/danger_red</item>
+    </style>
+
+    <!-- عنوان فصل في شاشة السياسات وسطره: مسافة واحدة بينهما في كل الشاشات -->
+    <style name="Widget.Madar.PolicyTitle" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">22dp</item>
+        <item name="android:fontFamily">@font/almarai_bold</item>
+        <item name="android:textColor">@color/secondary_navy</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="Widget.Madar.PolicyBody" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">6dp</item>
+        <item name="android:fontFamily">@font/almarai_regular</item>
+        <item name="android:lineSpacingExtra">5dp</item>
+        <item name="android:textColor">@color/text_dark</item>
+        <item name="android:textSize">14sp</item>
+    </style>
 </resources>

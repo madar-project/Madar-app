@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  شريط المجموع الإجمالي في بطاقة الطلب: لافندر كامل العرض بزوايا 12dp، يفصل
+  رقم الفاتورة عن أسطر الأصناف فوقه. أوسع من حبّة العدد لأن فيه الرقم النهائي.
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/section_light" />
+    <corners android:radius="12dp" />
+</shape>

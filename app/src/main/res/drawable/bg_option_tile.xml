@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  بلاطة خيار واحد (نوع الخبز مثلاً): المختارة خوخية بحد برتقالي، وغيرها بيضاء بحد
+  رمادي. الحالة تُضبَط في الكود بـ setSelected على البلاطة نفسها، وهي نفسها الطريقة
+  التي تُضبَط بها بطاقات وقت التحضير في شاشة التاجر، فما نبتدع حالة ثالثة.
+-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_selected="true">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/offer_chip_peach" />
+            <stroke
+                android:width="2dp"
+                android:color="@color/primary_orange" />
+            <corners android:radius="16dp" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/white" />
+            <stroke
+                android:width="1dp"
+                android:color="@color/field_stroke" />
+            <corners android:radius="16dp" />
+        </shape>
+    </item>
+</selector>

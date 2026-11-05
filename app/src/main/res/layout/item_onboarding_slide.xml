@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+    محتوى شريحة واحدة في شاشة المقدمة (Onboarding).
+    الصورة ثم العنوان ثم الوصف، والمجموعة متوسطة عمودياً في المساحة المتاحة.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:paddingHorizontal="24dp">
+
+    <!-- الصورة التوضيحية -->
+    <ImageView
+        android:id="@+id/imgSlide"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@null"
+        android:scaleType="fitCenter" />
+
+    <!-- العنوان الرئيسي -->
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/almarai_bold"
+        android:gravity="center"
+        android:textColor="@color/secondary_navy"
+        android:textSize="20sp" />
+
+    <!-- الوصف التوضيحي -->
+    <TextView
+        android:id="@+id/tvDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/almarai_regular"
+        android:gravity="center"
+        android:lineSpacingExtra="4dp"
+        android:textColor="@color/text_secondary"
+        android:textSize="14sp" />
+
+</LinearLayout>

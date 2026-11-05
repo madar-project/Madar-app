@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  مربّع الاختيار المتعدد: ملف للحالة وملف لغيرها، لا selector، لأن النافذة تبني
+  صفوفها بالكود وتعرف هي أيّها مختار — فالتمرير بين شكلين سطر واحد في كل حالة.
+  البرتقالي المليان هنا هو نفس لون زر الإضافة، فما يُخترع لون للتأكيد.
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/primary_orange" />
+    <corners android:radius="8dp" />
+</shape>

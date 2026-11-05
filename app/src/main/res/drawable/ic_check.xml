@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  علامة صح عادية من غير دائرة: على زرار «قبول الطلب» وفي مربّع القبول الصغير.
+  ic_check_circle مستحيلة هنا، لأن الزرار نفسه ملوّن فالصحّ داخل دائرة تصير
+  شكلين فوق بعض. اللون أسود ليتقبّل أي tint من اللي جواه.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="#000000"
+        android:pathData="M9,16.17L4.83,12l-1.42,1.41L9,19L21,7l-1.41,-1.41z" />
+</vector>
